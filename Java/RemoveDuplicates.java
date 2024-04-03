@@ -4,34 +4,25 @@
  * Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
  * Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. 
  * The remaining elements of nums are not important as well as the size of nums.
- * Return k.
+ * Return k. WIP
  */
 class RemoveDuplicates {
-    public int method(int[] nums) {
-        //two pointers
-        int curr = 0;
-        int next = 0;
-        boolean Break = false;
-        int i = 0; //location array
-        int k = 0; //num of unique elements
+    public int removeDuplicates(int[] nums) {
+        //Hashmap
+        int k = 0;
+        HashMap<Integer, Integer> numsHash = new HashMap<Integer, Integer>();
         
-            while(i < nums.length) {
-                curr = nums[next];
-                nums[k] = curr;
-                k++;
-                next++;
-                //find how many of curr
-                while(Break == false && next<nums.length) {
-                  if(nums[next] == curr) {
-                      nums[next] = 0;
-                       next++;
-                    }//if
-                    else {
-                        Break = true;
-                    }//else
-                }//while
-            i+=next;
-            }//while
-            return k;
-        }//method
-    }//RemoveDuplicates
+        for(int i = 0; i < nums.length ; i++)
+        {
+            if((numsHash.containsKey(nums[i])) == false)  {
+                numsHash.put(i,nums[i]);
+                    k++;
+            }
+        }
+        int index = 0;
+        for (int value : numsHash.values()) {
+            nums[index++] = value;
+        }//for
+        return k;
+    }//removeDuplicates
+}//Solution
