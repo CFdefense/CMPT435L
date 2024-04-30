@@ -1,19 +1,16 @@
-#include "Node.hpp"
+#include "Stack.hpp"
 
-class Stack {
-
-public:
     //null constructor
-    Stack() {
+    Stack::Stack() {
         myTop = nullptr;
     };
 
     //push method
-    bool push(int newValue) {
+    bool Stack::push(int newValue) {
         bool result = false;
         if(!isFull()) {
             result = true;
-            Node* newGuy = new Node(newValue);
+            myNode* newGuy = new myNode(newValue);
             newGuy->setNext(myTop);
             myTop = newGuy;
         }
@@ -21,7 +18,7 @@ public:
     };
 
     //pop method
-    int pop() {
+    int Stack::pop() {
         //set flag
         int popped = -1;
 
@@ -32,16 +29,11 @@ public:
     };
 
     //isEmpty method
-    bool isEmpty() {
+    bool Stack::isEmpty() {
         return(myTop == nullptr);
     };
 
     //isFull method
-    bool isFull() {
+    bool Stack::isFull() {
         return false;
     };
-
-private:
-    //Node Var
-    Node* myTop;
-};

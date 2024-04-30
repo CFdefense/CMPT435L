@@ -1,39 +1,37 @@
-#include "Node.hpp"
+#include "Queue.hpp"
 
-class Queue {
-
-    public:
     //null constructor
-    Queue() {
-        Node* myFront = nullptr;
-        Node* myRear = nullptr;
+    Queue::Queue() {
+        myNode* myFront = nullptr;
+        myNode* myRear = nullptr;
     };
 
     //enQueue method
-    bool enQueue(int newValue) {
+    bool Queue::enQueue(int newValue) {
         //Instance Variables
         bool result = false;
         //Add if Empty, if not add to front
         if(isEmpty()) {
             result = true;
-            Node* newGuy = new Node(newValue);
+            myNode* newGuy = new myNode(newValue);
             myFront = newGuy;
             myRear = newGuy;
         }
         else if(!isFull()) {
             result = true;
-            Node* newGuy = new Node(newValue);
+            myNode* newGuy = new myNode(newValue);
             newGuy->setNext(myFront);
             myFront = newGuy;
         }
+        return result;
     };
     
     //deQueue method
-    int deQueue() {
+    int Queue::deQueue() {
         //Instance Variables
         bool result = false;
-        Node* curr = myFront;
-        Node* prev = nullptr;
+        myNode* curr = myFront;
+        myNode* prev = nullptr;
 
         if(!isEmpty()) {
             result = true;
@@ -57,16 +55,11 @@ class Queue {
     };
 
     //isFull method
-    bool isFull() {
+    bool Queue::isFull() {
         return false;
     }
 
     //isEmpty method
-    bool isEmpty() {
+    bool Queue::isEmpty() {
         return(myFront == nullptr);
     };
-
-    private:
-        Node* myFront;
-        Node* myRear;
-};
