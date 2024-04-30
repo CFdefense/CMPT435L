@@ -1,5 +1,5 @@
-#include "Stack.hpp"
-#include "Queue.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Header Files\Stack.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Header Files\Queue.hpp"
 #include <iostream>
 
 using namespace std;
@@ -14,6 +14,7 @@ int main() {
     bool enQresult;
     bool puResult;
     bool deQresult;
+    string stackResult;
     while(userInput != 0) {
 
     cout << "1 - add to Stack/Queue; 2 - Remove from Stack/Queue; 3 - Display Stack/Queue" << endl;
@@ -33,6 +34,8 @@ int main() {
             cout << "DeQueue" << deQresult << "Stack" << result << endl;
             break;
         case 3:
+            stackResult = myStack->printList();
+            cout << stackResult << endl;
             break;
     }
     }

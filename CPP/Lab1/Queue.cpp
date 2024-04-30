@@ -1,4 +1,4 @@
-#include "Queue.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Header Files\Queue.hpp"
 
     //null constructor
     Queue::Queue() {
@@ -36,7 +36,7 @@
         if(!isEmpty()) {
             result = true;
             //Iterate through the linked list until the last node
-            while(curr != nullptr) {
+            while(curr != myRear) {
                 prev = curr;
                 curr = curr->getNext();
             }//while

@@ -1,3 +1,6 @@
 {
-    "java.project.sourcePaths": []
+    "files.associations": {
+        "format": "cpp",
+        "xstring": "cpp"
+    }
 }

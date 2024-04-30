@@ -1,4 +1,4 @@
-#include "Stack.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Header Files\Stack.hpp"
 
     //null constructor
     Stack::Stack() {
@@ -24,6 +24,7 @@
 
         if(!isEmpty()) {
             popped = myTop->getData();
+            myTop = myTop->getNext();
         }
         return popped;
     };
@@ -36,4 +37,23 @@
     //isFull method
     bool Stack::isFull() {
         return false;
+    };
+    
+    std::string Stack::printList() {
+        //Instance Variables
+        Stack* tempStack = new Stack();
+        std::string output;
+        int curr = 0;
+        
+        //pop and add from original
+        while(!isEmpty()) {
+            curr = pop();
+            output += std::to_string( curr );
+            tempStack->push(curr);
+        }
+        //push back to original
+        while(!tempStack->isEmpty()) {
+            push(tempStack->pop());
+        }
+        return output;
     };

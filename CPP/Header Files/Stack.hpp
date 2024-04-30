@@ -1,21 +1,23 @@
-#ifndef STACK_HPP
-#define STACK_HPP
+    #ifndef STACK_HPP
+    #define STACK_HPP
 
-#include "Node.hpp"
+    #include "Node.hpp"
+    #include <string>
 
-class Stack {
-public:
-    // Constructors
-    Stack();
+    class Stack {
+    public:
+        // Constructors
+        Stack();
 
-    // Member functions
-    bool push(int newValue);
-    int pop();
-    bool isEmpty();
-    bool isFull();
+        // Member functions
+        bool push(int newValue);
+        int pop();
+        bool isEmpty();
+        bool isFull();
+        std::string printList();
 
-private:
-    myNode* myTop;
-};
+    private:
+        myNode* myTop;
+    };
 
-#endif
+    #endif
