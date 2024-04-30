@@ -15,6 +15,8 @@ int main() {
     bool puResult;
     bool deQresult;
     string stackResult;
+    string queueResult;
+
     while(userInput != 0) {
 
     cout << "1 - add to Stack/Queue; 2 - Remove from Stack/Queue; 3 - Display Stack/Queue" << endl;
@@ -35,7 +37,9 @@ int main() {
             break;
         case 3:
             stackResult = myStack->printList();
-            cout << stackResult << endl;
+            queueResult = myQueue->printList();
+            cout << "Stack is" << stackResult << endl;
+            cout << "Queue is" << queueResult << endl;
             break;
     }
     }

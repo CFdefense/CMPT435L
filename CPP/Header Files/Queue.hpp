@@ -2,6 +2,7 @@
 #define QUEUE_HPP
 
 #include "Node.hpp"
+#include <string>
 
 class Queue {
 public:
@@ -10,9 +11,10 @@ public:
 
     // Member functions
     bool enQueue(int newValue);
-    int deQueue();
+    myNode* deQueue();
     bool isFull();
     bool isEmpty();
+    std::string printList();
 
 private:
     myNode* myFront;

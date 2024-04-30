@@ -2,8 +2,8 @@
 
     //null constructor
     Queue::Queue() {
-        myNode* myFront = nullptr;
-        myNode* myRear = nullptr;
+        myFront = nullptr;
+        myRear = nullptr;
     };
 
     //enQueue method
@@ -27,7 +27,7 @@
     };
     
     //deQueue method
-    int Queue::deQueue() {
+    myNode Queue::deQueue() {
         //Instance Variables
         bool result = false;
         myNode* curr = myFront;
@@ -44,9 +44,11 @@
             //Now that we've tranversed the linked list we must now determined what to do
             if (prev == nullptr) {
             // If prev is still nullptr, it means myFront is the only node
+                result = myFront;
                 myFront = nullptr;
                 myRear = nullptr;
             } else {
+                    result = myRear;
                     prev->setNext(nullptr); // Update the next pointer of the second-to-last node
                     myRear = prev; // Update myRear to point to the new last node
             }
@@ -57,9 +59,31 @@
     //isFull method
     bool Queue::isFull() {
         return false;
-    }
+    };
 
     //isEmpty method
     bool Queue::isEmpty() {
         return(myFront == nullptr);
+    };
+
+    //WORK ON
+    std::string Queue::printList() {
+        //instance variables
+        std::string output;
+        myNode* curr;
+        Queue* tempQueue = new Queue;
+        myNode* reQ;
+        bool res;
+        int data;
+        while(!isEmpty()) {
+            curr = deQueue();
+            data = curr->getData();
+            output += std::to_string( data );
+            tempQueue->enQueue(data);
+        }
+        while(!tempQueue->isEmpty()) {
+            reQ = tempQueue->deQueue();
+            res = enQueue(reQ->getData());
+        }
+    return output;
     };
