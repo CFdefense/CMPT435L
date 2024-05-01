@@ -1,4 +1,4 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Header Files\Queue.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Queue.hpp"
 
     //null constructor
     Queue::Queue() {
@@ -27,14 +27,13 @@
     };
     
     //deQueue method
-    myNode Queue::deQueue() {
+    myNode* Queue::deQueue() {
         //Instance Variables
-        bool result = false;
+        myNode* result = nullptr;
         myNode* curr = myFront;
         myNode* prev = nullptr;
 
         if(!isEmpty()) {
-            result = true;
             //Iterate through the linked list until the last node
             while(curr != myRear) {
                 prev = curr;
@@ -67,23 +66,14 @@
     };
 
     //WORK ON
-    std::string Queue::printList() {
+    std::string Queue::printqList() {
         //instance variables
         std::string output;
-        myNode* curr;
-        Queue* tempQueue = new Queue;
-        myNode* reQ;
-        bool res;
-        int data;
-        while(!isEmpty()) {
-            curr = deQueue();
-            data = curr->getData();
-            output += std::to_string( data );
-            tempQueue->enQueue(data);
-        }
-        while(!tempQueue->isEmpty()) {
-            reQ = tempQueue->deQueue();
-            res = enQueue(reQ->getData());
+        myNode* curr = myFront;
+        while (curr != nullptr) {
+            output += std::to_string(curr->getData()) + " ";
+            curr = curr->getNext();
         }
     return output;
     };
+    

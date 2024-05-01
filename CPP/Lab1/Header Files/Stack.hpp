@@ -14,7 +14,7 @@
         int pop();
         bool isEmpty();
         bool isFull();
-        std::string printList();
+        std::string printsList();
 
     private:
         myNode* myTop;

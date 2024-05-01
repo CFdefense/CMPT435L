@@ -1,5 +1,5 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Header Files\Stack.hpp"
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Header Files\Queue.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Stack.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Queue.hpp"
 #include <iostream>
 
 using namespace std;
@@ -13,7 +13,7 @@ int main() {
     int result = -1;
     bool enQresult;
     bool puResult;
-    bool deQresult;
+    myNode* deQresult;
     string stackResult;
     string queueResult;
 
@@ -33,11 +33,11 @@ int main() {
         case 2:
             deQresult = myQueue->deQueue();
             result = myStack->pop();
-            cout << "DeQueue" << deQresult << "Stack" << result << endl;
+            cout << "DeQueue" << deQresult->getData() << "Stack" << result << endl;
             break;
         case 3:
-            stackResult = myStack->printList();
-            queueResult = myQueue->printList();
+            stackResult = myStack->printsList();
+            queueResult = myQueue->printqList();
             cout << "Stack is" << stackResult << endl;
             cout << "Queue is" << queueResult << endl;
             break;

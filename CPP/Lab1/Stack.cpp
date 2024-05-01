@@ -1,4 +1,4 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Header Files\Stack.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Stack.hpp"
 
     //null constructor
     Stack::Stack() {
@@ -39,7 +39,7 @@
         return false;
     };
     
-    std::string Stack::printList() {
+    std::string Stack::printsList() {
         //Instance Variables
         Stack* tempStack = new Stack();
         std::string output;
@@ -48,7 +48,7 @@
         //pop and add from original
         while(!isEmpty()) {
             curr = pop();
-            output += std::to_string( curr );
+            output += std::to_string( curr ) + " ";
             tempStack->push(curr);
         }
         //push back to original

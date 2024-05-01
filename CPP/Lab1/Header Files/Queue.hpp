@@ -14,7 +14,7 @@ public:
     myNode* deQueue();
     bool isFull();
     bool isEmpty();
-    std::string printList();
+    std::string printqList();
 
 private:
     myNode* myFront;
