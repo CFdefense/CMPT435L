@@ -1,11 +1,47 @@
 #include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Stack.hpp"
 #include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Queue.hpp"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
+const int arraySize = 666;
+
 int main() {
 
+    //Instance Variables
+    string fileArray[arraySize];
+    string fileLine;
+    int itemNum = 0;
+    //Open File to be Read
+    ifstream myFile ("magicitems.txt");
+
+    if(!myFile) {
+        cout << "File Could Not Be Read" << endl;
+    } else {
+        //Check to see if file s
+        while(!myFile.eof()) {
+
+            //get next line from file to manipulate
+            getline(myFile, fileLine);
+
+            //Filter the inputs 
+            for(int i = 0; i < fileLine.length(); i++) {
+                //Check char's ASCII to see if its uppercase
+                if(int(fileLine[i] >= 65 && int(fileLine[i] <= 90))) {
+                    fileLine[i] = char(int(fileLine[i] + 32));
+                }
+            }
+
+            //Add filtered String to the array
+            fileArray[itemNum] = fileLine;
+            itemNum++;
+
+        }
+    }
+    
+    /*
+    QUEUE AND STACK TESTING
     Queue* myQueue = new Queue();
     Stack* myStack = new Stack();
     int userInput = -1;
@@ -43,5 +79,7 @@ int main() {
             break;
     }
     }
+    */
+
  return 0;
 }
