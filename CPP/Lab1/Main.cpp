@@ -1,5 +1,6 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Stack.hpp"
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Queue.hpp"
+#include "C:\Users\Christian\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Stack.hpp"
+#include "C:\Users\Christian\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Queue.hpp"
+#include "C:\Users\Christian\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Sorts.hpp"
 #include <iostream>
 #include <fstream>
 
@@ -13,9 +14,11 @@ int main() {
     string fileArray[arraySize];
     string fileLine;
     int itemNum = 0;
+
+//! Read File and filter contents into Array
     //Open File to be Read
     ifstream myFile ("magicitems.txt");
-
+    
     if(!myFile) {
         cout << "File Could Not Be Read" << endl;
     } else {
@@ -30,7 +33,11 @@ int main() {
                 //Check char's ASCII to see if its uppercase
                 if(int(fileLine[i] >= 65 && int(fileLine[i] <= 90))) {
                     fileLine[i] = char(int(fileLine[i] + 32));
-                }
+                // Check for spaces
+                } else if(fileLine[i] == ' ') { 
+                fileLine.erase(i, 1);
+                i--; // Decrement i to handle the shifting of characters after removing the space
+                } 
             }
 
             //Add filtered String to the array
@@ -39,7 +46,29 @@ int main() {
 
         }
     }
-    
+//! End of Read File and Filter Contents into Array
+
+
+//! Check if Palindrome and Print if Palindrome
+    for(int i = 0; i < arraySize; i++) {
+        string temp;
+        //for loop for going through each letter starting at the last one
+        for(int j = fileArray[i].length() - 1; j >= 0; j--) {
+            //append to temp string effectively flipping it
+            temp += fileArray[i][j];
+        }
+        if(temp.compare(fileArray[i]) == 0) {
+            cout << fileArray[i] << " Is a Palindrome" << endl;
+        }
+    }
+//! End of Check if Palindrome and Print if Palindrome
+
+//! Sorts
+    Sorts::selectionSort(fileArray, arraySize);
+
+//! End Sorts
+
+
     /*
     QUEUE AND STACK TESTING
     Queue* myQueue = new Queue();
