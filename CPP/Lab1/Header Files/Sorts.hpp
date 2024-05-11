@@ -7,10 +7,10 @@ class Sorts {
     public:
     //Sorts
     static void selectionSort(std::string arr[], int size);
-    void insertionSort();
-    void mergeSort();
-    void quickSort();
-    void shuffleSort();
+    static void insertionSort(std::string arr[], int size);
+    static void mergeSort(std::string arr[], int size);
+    static void quickSort(std::string arr[], int size);
+    static void shuffleSort(std::string arr[], int size);
 };
 
 

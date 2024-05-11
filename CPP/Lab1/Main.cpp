@@ -34,7 +34,7 @@ int main() {
                 if(int(fileLine[i] >= 65 && int(fileLine[i] <= 90))) {
                     fileLine[i] = char(int(fileLine[i] + 32));
                 // Check for spaces
-                } else if(fileLine[i] == ' ') { 
+                } else if(fileLine[i] == ' '|| fileLine[i] == '\t') { 
                 fileLine.erase(i, 1);
                 i--; // Decrement i to handle the shifting of characters after removing the space
                 } 
@@ -64,8 +64,9 @@ int main() {
 //! End of Check if Palindrome and Print if Palindrome
 
 //! Sorts
-    Sorts::selectionSort(fileArray, arraySize);
 
+    //Sorts::selectionSort(fileArray, arraySize);
+    //Sorts::insertionSort(fileArray,arraySize);
 //! End Sorts
 
 

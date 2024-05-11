@@ -21,18 +21,29 @@ void Sorts::selectionSort(std::string arr[], int arrSize) {
     }
 }; 
 
-void Sorts::insertionSort() {
+void Sorts::insertionSort(std::string arr[], int arrSize) {
+    //1st always good loop through all
+    for(int i = 1; i < arrSize; i++) {
+        int j = i-1; //j will be our pointer to compare our current element to, starts at the one before current
+        std::string curr = arr[i];
+        //Scooch while current element is smaller
+        while((curr < arr[j]) && (j >= 0)) {
+            arr[j+1] = arr[j];
+            j--;
+        }
+        //place curr element in its spot
+        arr[j+1] = curr;
+    }
+};
+
+void Sorts::mergeSort(std::string arr[], int size) {
 
 };
 
-void Sorts::mergeSort() {
+void Sorts::quickSort(std::string arr[], int size) {
 
 };
 
-void Sorts::quickSort() {
-
-};
-
-void Sorts::shuffleSort() {
+void Sorts::shuffleSort(std::string arr[], int size) {
 
 };
