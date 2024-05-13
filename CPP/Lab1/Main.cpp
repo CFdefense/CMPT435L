@@ -66,7 +66,12 @@ int main() {
 //! Sorts
 
     //Sorts::selectionSort(fileArray, arraySize);
-    //Sorts::insertionSort(fileArray,arraySize);
+    //Sorts::insertionSort(fileArray, arraySize);
+    //Sorts::quickSort(fileArray,0,arraySize-1);
+    for(int i = 0; i < arraySize; i++) {
+        cout << fileArray[i] << endl;
+    }
+
 //! End Sorts
 
 
