@@ -33,8 +33,57 @@ void Sorts::insertionSort(std::string arr[], int arrSize) {
     }
 };
 
-void Sorts::mergeSort(std::string arr[], int size) {
+void Sorts::mergeSort(std::string arr[], int start, int end) {
+    //instance variable
+    int middle = ((start + end) / 2);
+    //base case
+    if(start > end) {
+        return;
+    }
+    //left split
+    mergeSort(arr, start, middle);
+    //right split
+    mergeSort(arr, middle+1, end);
+    //merge splitted in sorted fashion
+    merge(arr, start, middle, end);
+
+    //recursive case
 };
+
+void merge(std::string arr[], int start, int middle, int end) {
+    //Instance Variables
+    int len = end-start;
+    std::string* temp = new std::string[len];   
+    //create pointers
+    int i = start;
+    int j = middle;
+    //counter
+    int k = 0;
+
+    //merge subarrays into temp array
+    while(i < middle && j < end) {
+        if(arr[i] <= arr[j]) {
+            //add i to temp and post increment
+            temp[k++] = arr[i++];
+        }
+        else {
+            temp[k++] = arr[j++];
+        }
+    }
+
+    //copy any remaining elements
+    while(i < middle) {
+        temp[k++] = arr[i++];
+    }
+    while(j < end) {
+        temp[k++] = arr[j++];
+    }
+
+    //copy temp array onto main array
+    for(int m = start; m < end; m++) {
+        arr[m] = temp[m];
+    }
+}
 
 void Sorts::quickSort(std::string arr[], int start, int end) {
     //recusively call while start < end
