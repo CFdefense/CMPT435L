@@ -1,6 +1,6 @@
-#include "C:\Users\Christian\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Stack.hpp"
-#include "C:\Users\Christian\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Queue.hpp"
-#include "C:\Users\Christian\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Sorts.hpp"
+#include "../Header Files/Stack.hpp"
+#include "../Header Files/Queue.hpp"
+#include "../Header Files\Sorts.hpp"
 #include <iostream>
 #include <fstream>
 
@@ -68,9 +68,6 @@ int main() {
     //Sorts::selectionSort(fileArray, arraySize);
     //Sorts::insertionSort(fileArray, arraySize);
     //Sorts::quickSort(fileArray,0,arraySize-1);
-    for(int i = 0; i < arraySize; i++) {
-        cout << fileArray[i] << endl;
-    }
 
 //! End Sorts
 

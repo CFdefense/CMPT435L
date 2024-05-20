@@ -1,4 +1,4 @@
-#include "C:\Users\Christian\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Sorts.hpp"
+#include "../Header Files/Sorts.hpp"
 void Sorts::selectionSort(std::string arr[], int arrSize) {
     std::string currentMin;
     std::string temp;

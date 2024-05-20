@@ -1,4 +1,4 @@
-#include "C:\Users\Christian\Documents\GitHub\LeetCode\CPP\Lab1\Header Files\Queue.hpp"
+#include "../Header Files/Queue.hpp"
 
     //null constructor
     Queue::Queue() {
