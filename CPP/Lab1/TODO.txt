@@ -1,2 +1,2 @@
 garbage collection
-o(N) shuffling sort
+print comparisons for each sort

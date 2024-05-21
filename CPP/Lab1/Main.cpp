@@ -1,6 +1,6 @@
-#include "../Header Files/Stack.hpp"
-#include "../Header Files/Queue.hpp"
-#include "../Header Files/Sorts.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\HeaderFiles\Stack.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\HeaderFiles\Queue.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\HeaderFiles\Sorts.hpp"
 #include <iostream>
 #include <fstream>
 
@@ -29,7 +29,7 @@ int main() {
             getline(myFile, fileLine);
 
             //Filter the inputs 
-            for(int i = 0; i < fileLine.length(); i++) {
+            for(std::string::size_type i = 0; i < fileLine.length(); i++) {
                 //Check char's ASCII to see if its uppercase
                 if(int(fileLine[i] >= 65 && int(fileLine[i] <= 90))) {
                     fileLine[i] = char(int(fileLine[i] + 32));
@@ -69,9 +69,11 @@ int main() {
     //Sorts::insertionSort(fileArray, arraySize);
     //Sorts::quickSort(fileArray,0,arraySize-1);
     //Sorts::mergeSort(fileArray,0,arraySize-1);
+    Sorts::shuffleSort(fileArray, arraySize);
     for(int i = 0; i < arraySize; i++) {
         cout << fileArray[i] << endl;
     }
+    cout << "Done" << endl;
 //! End Sorts
 
 

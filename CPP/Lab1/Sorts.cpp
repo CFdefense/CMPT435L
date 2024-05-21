@@ -1,4 +1,4 @@
-#include "../Header Files/Sorts.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\HeaderFiles\Sorts.hpp"
 void Sorts::selectionSort(std::string arr[], int arrSize) {
     std::string currentMin;
     std::string temp;
@@ -50,7 +50,7 @@ void Sorts::mergeSort(std::string arr[], int start, int end) {
     //recursive case
 };
 
-void merge(std::string arr[], int start, int middle, int end) {
+void Sorts::merge(std::string arr[], int start, int middle, int end) {
     //Instance Variables
     int len = end-start;
     std::string* temp = new std::string[len];   
@@ -83,7 +83,7 @@ void merge(std::string arr[], int start, int middle, int end) {
     for(int m = start; m < end; m++) {
         arr[m] = temp[m];
     }
-}
+};
 
 void Sorts::quickSort(std::string arr[], int start, int end) {
     //recusively call while start < end
@@ -120,7 +120,21 @@ int Sorts::quickSubset(std::string arr[], int start, int end) {
 }
 
 void Sorts::shuffleSort(std::string arr[], int size) {
+    //Instance Variables
+    int randNum;
+    std::random_device rand; //create random number generator
+    std::mt19937 gen(rand()); //create Mersenne Twister random generator
+    int upperBound = size; //upper bound for random generated number
+    int lowerBound = 0; //lower bound for random generated number
 
+    //Create the distribution
+    std::uniform_int_distribution<> distr(lowerBound, upperBound);
+
+    //perform the shuffle 
+    for(int i = size-1; i >= 1; i--) {
+        randNum = distr(gen);
+        swap(&arr[i], &arr[randNum]);
+    }
 };
 
 //general swapping method

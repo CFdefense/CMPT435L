@@ -1,4 +1,4 @@
-#include "../Header Files/Node.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\HeaderFiles\Node.hpp"
 
     //constructor 
     myNode::myNode() {
