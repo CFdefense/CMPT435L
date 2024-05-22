@@ -1,13 +1,16 @@
 #include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\HeaderFiles\Sorts.hpp"
+#include <iostream>
 void Sorts::selectionSort(std::string arr[], int arrSize) {
     std::string currentMin;
     std::string temp;
+    int numComparisons = 0;
     //for loop to indicate how many passes
     for(int i = 0; i < arrSize; i++) {
         //for loop to find smallest
         currentMin = arr[i];
         int location = i;
         for(int j = i; j < arrSize; j++) {
+            numComparisons++;
             if(arr[j].compare(currentMin) < 0) {
                 currentMin = arr[j];
                 location = j;
@@ -16,10 +19,12 @@ void Sorts::selectionSort(std::string arr[], int arrSize) {
         //swap
         swap(&arr[i], &arr[location]);
     }
+    std::cout << "Selection Sort Comparisons: " << numComparisons << std::endl;
 }; 
 
 void Sorts::insertionSort(std::string arr[], int arrSize) {
     //1st always good loop through all
+    int numComparisons = 0;
     for(int i = 1; i < arrSize; i++) {
         int j = i-1; //j will be our pointer to compare our current element to, starts at the one before current
         std::string curr = arr[i];
