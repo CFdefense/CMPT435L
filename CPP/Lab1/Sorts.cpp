@@ -29,13 +29,19 @@ void Sorts::insertionSort(std::string arr[], int arrSize) {
         int j = i-1; //j will be our pointer to compare our current element to, starts at the one before current
         std::string curr = arr[i];
         //Scooch while current element is smaller
-        while((curr < arr[j]) && (j >= 0)) {
-            arr[j+1] = arr[j];
-            j--;
+        while(j >= 0) {
+            numComparisons++;
+            if(curr < arr[j]) {
+                arr[j+1] = arr[j];
+                j--;
+            } else {
+                break;
+            }
         }
         //place curr element in its spot
         arr[j+1] = curr;
     }
+    std::cout << "Insertion Sort Comparisons: " << numComparisons << std::endl;
 };
 
 void Sorts::mergeSort(std::string arr[], int start, int end) {
@@ -131,15 +137,18 @@ void Sorts::shuffleSort(std::string arr[], int size) {
     std::mt19937 gen(rand()); //create Mersenne Twister random generator
     int upperBound = size; //upper bound for random generated number
     int lowerBound = 0; //lower bound for random generated number
+    int numComparisons = 0;
 
     //Create the distribution
     std::uniform_int_distribution<> distr(lowerBound, upperBound);
 
     //perform the shuffle 
-    for(int i = size-1; i >= 1; i--) {
+    for(int i = size-1; i >= 0; i--) {
         randNum = distr(gen);
         swap(&arr[i], &arr[randNum]);
+        numComparisons++;
     }
+    std::cout << "Shuffle Sort Comparisons: " << numComparisons << std::endl;
 };
 
 //general swapping method

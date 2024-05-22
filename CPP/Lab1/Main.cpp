@@ -64,12 +64,11 @@ int main() {
 //! End of Check if Palindrome and Print if Palindrome
 
 //! Sorts
-
-    Sorts::selectionSort(fileArray, arraySize);
+    //Sorts::selectionSort(fileArray, arraySize);
     //Sorts::insertionSort(fileArray, arraySize);
     //Sorts::quickSort(fileArray,0,arraySize-1);
     //Sorts::mergeSort(fileArray,0,arraySize-1);
-    //Sorts::shuffleSort(fileArray, arraySize);
+    Sorts::shuffleSort(fileArray, arraySize);
     for(int i = 0; i < arraySize; i++) {
         cout << fileArray[i] << endl;
     }

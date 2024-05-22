@@ -1,2 +1,2 @@
 garbage collection
-print comparisons for each sort
+merge and quick sort comparisons
