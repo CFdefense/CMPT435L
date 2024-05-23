@@ -96,20 +96,19 @@ void Sorts::merge(std::string arr[], int start, int middle, int end) {
     }
 };
 
-void Sorts::quickSort(std::string arr[], int start, int end) {
+void Sorts::quickSort(std::string arr[], int start, int end, int &numComparisons) {
     //recusively call while start < end
     if(start < end) {
-        
         //find pivot and sort around the pivot
-        int pivot = quickSubset(arr, start, end); 
+        int pivot = quickSubset(arr, start, end, numComparisons); 
         //recursive call the right of the pivot
-        quickSort(arr, pivot + 1, end);
+        quickSort(arr, pivot + 1, end, numComparisons);
         //recursive call the left of the pivot
-        quickSort(arr, start, pivot - 1); 
+        quickSort(arr, start, pivot - 1, numComparisons); 
     }
 };
 
-int Sorts::quickSubset(std::string arr[], int start, int end) {
+int Sorts::quickSubset(std::string arr[], int start, int end, int &numComparisons) {
     //Method to find pivot and sort around it
 
     //set pivot to be last element
@@ -118,7 +117,8 @@ int Sorts::quickSubset(std::string arr[], int start, int end) {
     int curr = start - 1;
 
     //go through all previous elements and determine which side of the pivot they fall on
-    for(int i = start; i < end; i++) {  
+    for(int i = start; i < end; i++) {
+        numComparisons++;
         if(arr[i].compare(pivot) <= 0) {
             //if we found the element to be smaller were going to swap it with the # of curr were on
             curr++;
@@ -148,7 +148,7 @@ void Sorts::shuffleSort(std::string arr[], int size) {
         swap(&arr[i], &arr[randNum]);
         numComparisons++;
     }
-    std::cout << "Shuffle Sort Comparisons: " << numComparisons << std::endl;
+    std::cout << "Shuffle Comparisons: " << numComparisons << std::endl;
 };
 
 //general swapping method

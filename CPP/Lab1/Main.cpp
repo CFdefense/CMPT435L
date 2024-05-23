@@ -14,6 +14,7 @@ int main() {
     string fileArray[arraySize];
     string fileLine;
     int itemNum = 0;
+    int qsNumComparisons = 0;
 
 //! Read File and filter contents into Array
     //Open File to be Read
@@ -66,9 +67,10 @@ int main() {
 //! Sorts
     //Sorts::selectionSort(fileArray, arraySize);
     //Sorts::insertionSort(fileArray, arraySize);
-    //Sorts::quickSort(fileArray,0,arraySize-1);
+    Sorts::quickSort(fileArray,0,arraySize-1, qsNumComparisons);
+    std::cout << "QS Sort Comparisons: " << qsNumComparisons << std::endl;
     //Sorts::mergeSort(fileArray,0,arraySize-1);
-    Sorts::shuffleSort(fileArray, arraySize);
+    //Sorts::shuffleSort(fileArray, arraySize);
     for(int i = 0; i < arraySize; i++) {
         cout << fileArray[i] << endl;
     }
