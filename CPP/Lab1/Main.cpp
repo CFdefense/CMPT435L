@@ -15,6 +15,7 @@ int main() {
     string fileLine;
     int itemNum = 0;
     int qsNumComparisons = 0;
+    int msNumComparisons = 0;
 
 //! Read File and filter contents into Array
     //Open File to be Read
@@ -65,15 +66,15 @@ int main() {
 //! End of Check if Palindrome and Print if Palindrome
 
 //! Sorts
-    //Sorts::selectionSort(fileArray, arraySize);
-    //Sorts::insertionSort(fileArray, arraySize);
+    Sorts::selectionSort(fileArray, arraySize);
+    Sorts::shuffleSort(fileArray, arraySize);
+    Sorts::insertionSort(fileArray, arraySize);
+    Sorts::shuffleSort(fileArray, arraySize);
     Sorts::quickSort(fileArray,0,arraySize-1, qsNumComparisons);
     std::cout << "QS Sort Comparisons: " << qsNumComparisons << std::endl;
-    //Sorts::mergeSort(fileArray,0,arraySize-1);
-    //Sorts::shuffleSort(fileArray, arraySize);
-    for(int i = 0; i < arraySize; i++) {
-        cout << fileArray[i] << endl;
-    }
+    Sorts::shuffleSort(fileArray, arraySize);
+    Sorts::mergeSort(fileArray,0,arraySize-1, msNumComparisons);
+    std::cout << "MS Sort Comparisons: " << msNumComparisons << std::endl;
     cout << "Done" << endl;
 //! End Sorts
 

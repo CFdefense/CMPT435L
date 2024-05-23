@@ -1,2 +1,2 @@
 garbage collection
-merge and quick sort comparisons
+LATEX writeup

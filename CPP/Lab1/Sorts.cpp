@@ -44,35 +44,36 @@ void Sorts::insertionSort(std::string arr[], int arrSize) {
     std::cout << "Insertion Sort Comparisons: " << numComparisons << std::endl;
 };
 
-void Sorts::mergeSort(std::string arr[], int start, int end) {
+void Sorts::mergeSort(std::string arr[], int start, int end, int &numComparisons) {
     //instance variable
-    int middle = ((start + end) / 2);
+    int middle = start + (end-start) / 2;
     //base case
-    if(start > end) {
+    if(start >= end) {
         return;
     }
     //left split
-    mergeSort(arr, start, middle);
+    mergeSort(arr, start, middle, numComparisons);
     //right split
-    mergeSort(arr, middle+1, end);
+    mergeSort(arr, middle+1, end, numComparisons);
     //merge splitted in sorted fashion
-    merge(arr, start, middle, end);
+    merge(arr, start, middle, end, numComparisons);
 
     //recursive case
 };
 
-void Sorts::merge(std::string arr[], int start, int middle, int end) {
+void Sorts::merge(std::string arr[], int start, int middle, int end, int &numComparisons) {
     //Instance Variables
-    int len = end-start;
+    int len = end-start + 1;
     std::string* temp = new std::string[len];   
     //create pointers
     int i = start;
-    int j = middle;
+    int j = middle + 1;
     //counter
     int k = 0;
 
     //merge subarrays into temp array
-    while(i < middle && j < end) {
+    while(i <= middle && j <= end) {
+        numComparisons++;
         if(arr[i] <= arr[j]) {
             //add i to temp and post increment
             temp[k++] = arr[i++];
@@ -83,17 +84,20 @@ void Sorts::merge(std::string arr[], int start, int middle, int end) {
     }
 
     //copy any remaining elements
-    while(i < middle) {
+    while(i <= middle) {
         temp[k++] = arr[i++];
     }
-    while(j < end) {
+    while(j <= end) {
         temp[k++] = arr[j++];
     }
 
     //copy temp array onto main array
-    for(int m = start; m < end; m++) {
-        arr[m] = temp[m];
+    for(int m = 0; m < len; m++) {
+        arr[start + m] = temp[m];
     }
+
+    //garbage collection
+    delete[] temp;
 };
 
 void Sorts::quickSort(std::string arr[], int start, int end, int &numComparisons) {
@@ -140,7 +144,7 @@ void Sorts::shuffleSort(std::string arr[], int size) {
     int numComparisons = 0;
 
     //Create the distribution
-    std::uniform_int_distribution<> distr(lowerBound, upperBound);
+    std::uniform_int_distribution<> distr(lowerBound, upperBound-1);
 
     //perform the shuffle 
     for(int i = size-1; i >= 0; i--) {
