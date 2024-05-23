@@ -1,6 +1,6 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\HeaderFiles\Stack.hpp"
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\HeaderFiles\Queue.hpp"
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Lab1\HeaderFiles\Sorts.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment1\HeaderFiles\Stack.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment1\HeaderFiles\Queue.hpp"
+#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment1\HeaderFiles\Sorts.hpp"
 #include <iostream>
 #include <fstream>
 
