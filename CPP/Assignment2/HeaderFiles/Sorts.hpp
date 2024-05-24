@@ -5,6 +5,7 @@
 #include <iostream>
 
 class Sorts {
+    public:
     static void insertionSort(std::string arr[], int size);
 };
 
