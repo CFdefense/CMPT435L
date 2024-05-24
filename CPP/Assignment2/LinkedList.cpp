@@ -64,4 +64,15 @@
         delete curr;
     }
 
-    bool LinkedList::search()
+    bool LinkedList::search(std::string str) {
+        bool found = false;
+        myNode* curr = myHead;
+
+        while(found == false && curr != nullptr) {
+            if(curr->getData().compare(str) == 0) {
+                found = true;
+            }
+            curr = curr->getNext();
+        }
+        return found;
+    }
