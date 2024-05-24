@@ -51,7 +51,7 @@ int binaryAverage = 0;
     }
 //! End of Read File and Filter Contents into Array
 
-//! Begin Function Calls
+//! Begin Searching Function Calls
     //Sort the Inputs
     Sorts::insertionSort(fileArray, arraySize);
 
@@ -78,5 +78,15 @@ int binaryAverage = 0;
     cout << "Binary Search Comparisons: " << binaryComparisons << endl;
     cout << "Average Binary Search Comparisons: " << binaryAverage << endl;
 
+//! End of Searching Calls
+
+//! Start Hashing
+
+
+
+
+
+
+//! End Hashing
     return 0;
 }

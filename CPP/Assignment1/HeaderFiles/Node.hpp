@@ -8,6 +8,9 @@ public:
     myNode(int newData);
     myNode(int newData, myNode* newNext);
 
+    //Deconstructor
+    ~myNode();
+
     // Getter methods
     int getData();
     myNode* getNext();
