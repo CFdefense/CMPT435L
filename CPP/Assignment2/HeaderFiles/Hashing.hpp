@@ -15,19 +15,19 @@ class Hashing {
     //Linked List - Nodes contain (std::string, int) pairs
     LinkedList* hashTable;
 
-    static int makeHashCode(std::string str);
-
     public:
 
     //Constructor
-    Hashing(int size);
+    Hashing();
 
     //Deconstructor
     ~Hashing();
 
-    void add(std::string key, int value);
+    //methods
+    static int getHashCode(std::string str);
+    void add(std::string value);
     void remove(std::string key);
-    bool search(std::string key);
+    bool search(std::string key, int &comparisons);
 
 };
 

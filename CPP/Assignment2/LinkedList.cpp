@@ -24,9 +24,12 @@
     }
 
     void LinkedList::add(myNode* newNode) {
-        //Assuming were adding because there is a bucket collision
+        //Add regardless of bucket collision
+
+        //If bucket is empty we just make the new node the front
         if(myHead == nullptr) {
             myHead = newNode;
+        //otherwise we traverse the linkedlist and add to end
         } else {
             myNode* curr = myHead;
             myNode* prev;
@@ -44,19 +47,19 @@
         myNode* curr = myHead;
         myNode* prev;
 
-        if (myHead == nullptr) {
-            // List is empty, nothing to remove
-            return;
-        }
+        // List is empty, nothing to remove
+        if (myHead == nullptr) { return; }
 
-        if(myHead->getData().compare(str) == 0) {
+        //If Value is at Head
+        if(myHead->getValue().compare(str) == 0) {
             myNode* temp = myHead;
             myHead = myHead->getNext();
             delete temp;
             return;
         }
 
-        while(curr->getData().compare(str) != 0) {
+        //else traverse linked list and delete
+        while(curr->getValue().compare(str) != 0) {
             prev = curr;
             curr = curr->getNext();
         }
@@ -64,12 +67,13 @@
         delete curr;
     }
 
-    bool LinkedList::search(std::string str) {
+    bool LinkedList::search(std::string str, int &comparisons) {
         bool found = false;
         myNode* curr = myHead;
 
         while(found == false && curr != nullptr) {
-            if(curr->getData().compare(str) == 0) {
+            comparisons++;
+            if(curr->getValue().compare(str) == 0) {
                 found = true;
             }
             curr = curr->getNext();

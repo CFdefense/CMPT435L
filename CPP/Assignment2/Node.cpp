@@ -2,26 +2,26 @@
 
     //constructor 
     myNode::myNode() {
-        myData = "";
+        myValue = "";
         myNext = nullptr;
     };
 
     //half constructor
-    myNode::myNode(std::string newData) {
-        myData = newData;
+    myNode::myNode(std::string newValue) {
+        myValue = newValue;
         myNext = nullptr;
     };
 
     //full constructor
-    myNode::myNode(std::string newData, myNode* newNext) {
-        myData = newData;
+    myNode::myNode(std::string newValue, myNode* newNext) {
+        myValue = newValue;
         myNext = newNext;
     };
 
     //get methods
-    std::string myNode::getData() { return myData; };
+    std::string myNode::getValue() { return myValue; };
     myNode* myNode::getNext() { return myNext; };
 
     //set methods
-    void myNode::setData(std::string newData) {myData = newData; };
+    void myNode::setValue(std::string newValue) {myValue = newValue; };
     void myNode::setNext(myNode* newNext) {myNext = newNext; };

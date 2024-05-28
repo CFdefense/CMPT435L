@@ -13,7 +13,7 @@ class LinkedList {
     void setHead(myNode* newHead);
     void add(myNode* newNode);
     void remove(std::string str);
-    bool search(std::string str);
+    bool search(std::string str, int &comparisons);
 
     private:
     myNode* myHead;
