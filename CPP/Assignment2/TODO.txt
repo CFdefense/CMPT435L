@@ -1,1 +1,1 @@
-Correctly intertwin the elements and begin testing. Main needs completion
+fix errors and correctly implement instruction set
