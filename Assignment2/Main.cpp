@@ -1,6 +1,6 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment2\HeaderFiles\Sorts.hpp"
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment2\HeaderFiles\Searches.hpp"
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment2\HeaderFiles\Hashing.hpp"
+#include "Sorts.hpp"
+#include "Searches.hpp"
+#include "Hashing.hpp"
 #include <fstream>
 #include <iomanip>
 

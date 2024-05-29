@@ -1,4 +1,4 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment2\HeaderFiles\Sorts.hpp"
+#include "Sorts.hpp"
 
 void Sorts::insertionSort(std::string arr[], int arrSize) {
     //1st always good loop through all

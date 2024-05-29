@@ -1,4 +1,4 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment2\HeaderFiles\Searches.hpp"
+#include "Searches.hpp"
 
 void Searches::linearSearch(std::string arr[], std::string target, int &numComparisons) {
     bool found = false;

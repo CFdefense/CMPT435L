@@ -1,4 +1,4 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment1\HeaderFiles\Sorts.hpp"
+#include "Sorts.hpp"
 #include <iostream>
 void Sorts::selectionSort(std::string arr[], int arrSize) {
     std::string currentMin;

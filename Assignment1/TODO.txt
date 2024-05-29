@@ -1,2 +1,2 @@
-garbage collection
-LATEX writeup
+garbage collection?
+LATEX Writeup

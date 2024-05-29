@@ -1,4 +1,4 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment1\HeaderFiles\Stack.hpp"
+#include "Stack.hpp"
 
     //null constructor
     Stack::Stack() {

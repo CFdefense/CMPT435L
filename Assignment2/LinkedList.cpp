@@ -1,4 +1,4 @@
-#include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment2\HeaderFiles\LinkedList.hpp"
+#include "LinkedList.hpp"
 
     //Constructor
     LinkedList::LinkedList() {
