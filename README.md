@@ -1,6 +1,7 @@
 # Marist Algorithms Class by Professor Labouseur
 ## Self-Taught and Completed - Summer '24
 
+
 ### Topics Covered
 - **Data Structures**
 - **Sorting**
@@ -10,5 +11,7 @@
 - **Trees**
 - **Dynamic Programming**
 - **Greedy Algorithms**
+
+  
 
 ## LaTeX Writeups and Some Code Adjustments May be Required
