@@ -25,19 +25,20 @@
 
     void LinkedList::add(myNode* newNode) {
         //Add regardless of bucket collision
-
         //If bucket is empty we just make the new node the front
         if(myHead == nullptr) {
             myHead = newNode;
         //otherwise we traverse the linkedlist and add to end
         } else {
             myNode* curr = myHead;
-            myNode* prev;
+            myNode* prev = nullptr;
             while(curr != nullptr) {
                 prev = curr;
                 curr = curr->getNext();
-            }   
-            prev->setNext(newNode);
+            }
+            if(prev != nullptr) {
+                prev->setNext(newNode);
+            }
         }
         
     }
@@ -45,7 +46,7 @@
     void LinkedList::remove(std::string str) {
         //Remove From LinkedList Assuming str is in the linkedlist
         myNode* curr = myHead;
-        myNode* prev;
+        myNode* prev = nullptr;
 
         // List is empty, nothing to remove
         if (myHead == nullptr) { return; }

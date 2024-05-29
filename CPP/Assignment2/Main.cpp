@@ -102,18 +102,17 @@ float hashComparisonAvg = 0;
         hashTable.search(randArray[i], hashComparisons);
 
         //Display Search Results
-        cout << "String: " << randArray[i] << " Took " << hashComparisons << " Comparisons" << endl;
+        cout << "String: " << randArray[i] << " ... Comparisons:  " << hashComparisons << endl;
 
         //Increment total comparisons count
         totalHashComparisons += hashComparisons;
     }
 
     //Compute Hash Search Comparison Average 
-    hashComparisonAvg = totalHashComparisons / 42;
-
+    hashComparisonAvg = totalHashComparisons / 42.00;
     //Display final average to 2 decimals
     cout << setprecision(2) << fixed;
-    cout << hashComparisonAvg << endl;
+    cout << "Average Search Comparisons: " << hashComparisonAvg << endl;
 
 //! End Hashing
     return 0;

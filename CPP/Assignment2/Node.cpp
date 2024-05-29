@@ -1,5 +1,4 @@
 #include "C:\Users\CFdef\Documents\GitHub\LeetCode\CPP\Assignment2\HeaderFiles\Node.hpp"
-
     //constructor 
     myNode::myNode() {
         myValue = "";
