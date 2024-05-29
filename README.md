@@ -10,3 +10,5 @@
 - **Trees**
 - **Dynamic Programming**
 - **Greedy Algorithms**
+
+## LATEX Writeups and Some Code Adjustments May be Required
