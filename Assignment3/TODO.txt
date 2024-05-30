@@ -1,1 +1,2 @@
-Start with main and begin with matrix
+Fix Printing debug function
+fix issue with matrix not scaling properly causing seg faults

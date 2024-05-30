@@ -1,3 +1,5 @@
+#include "Graphs.hpp"
+
 #include <fstream>
 #include <vector>
 #include <iostream>
@@ -107,23 +109,14 @@ int main() {
     }
 
     //! End of File Reading and Manipulation
+    
+    // Create Instance of Graphs
+    Graphs graphs(vCounts);
+    graphs.printInfo(vCounts, eCounts, gCount, edgePairsArray); //remake
+    graphs.makeMatrices(gCount, vCounts, edgePairsArray);
+    graphs.printMatrix();
 
     //! Start of Graph Creation and Visualization
 
     return 0;
 }
-
-
-
-// General printing function for testing and visualization purposes
-void printInfo(vector<int> vCounts, vector<int> eCounts, int gCount, vector<vector<pair<int,int>>> edgePairsArray) {
-        cout << "Total number of graphs: " << gCount << endl;
-        for(int i = 0; i < gCount; i++) {
-            cout << "Graph #" << i + 1 << endl;
-            cout << "Vertices " << vCounts[i] << endl;
-            cout << "Edges " << eCounts[i] << endl;
-            for(int j = 0; j < eCounts[i]; j++) {
-                cout << "(" << edgePairsArray[i][j].first << "," << edgePairsArray[i][j].second << ")" << endl;
-            }
-        }
-    }
