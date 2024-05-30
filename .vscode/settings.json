@@ -58,6 +58,8 @@
         "algorithm": "cpp",
         "optional": "cpp",
         "random": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "iomanip": "cpp",
+        "list": "cpp"
     }
 }
