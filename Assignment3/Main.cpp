@@ -4,7 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
-
+#include <limits>
 using namespace std;
 
 int main() {
@@ -14,10 +14,14 @@ int main() {
     // Counting Vertices and Edges using dynamic arrays
     vector<int> vCounts; 
     vector<int> eCounts;
+    vector<int> minVertexes;
 
     // Counting variables for each graph
     int vCount = 0;
     int eCount = 0;
+
+    //Needed to indentify when indexing will need to begin before 1
+    int minVertex = std::numeric_limits<int>::max();
 
     // Count number of graphs
     int gCount;
@@ -48,7 +52,10 @@ int main() {
                     vCounts.push_back(vCount);
                     eCounts.push_back(eCount);
                     edgePairsArray.push_back(edgePairs);
+                    minVertexes.push_back(minVertex);
 
+                    //reset for next graph
+                    minVertex = std::numeric_limits<int>::max();
                     vCount = 0;
                     eCount = 0;
                     edgePairs.clear();
@@ -59,6 +66,21 @@ int main() {
                 if (fileLine.find("add vertex") != string::npos) { 
                     // increment vertex
                     vCount++;
+                    // Find value of vertex
+                    int vertexValue = 0;
+                    bool foundDigit = false; // Flag to indicate if a first digit has been found
+                    for (std::string::size_type i = 0; i < fileLine.length(); i++) {
+                        // look for our first digit
+                        if (isdigit(fileLine[i])) {
+                            foundDigit = true;
+                            vertexValue = vertexValue * 10 + (fileLine[i] - '0');
+                        } else if (foundDigit) {
+                            // If a digit has been found and the current character is not a digit then were done
+                            break;
+                        }
+                    }
+                // Update minVertex if the current vertexValue is smaller
+                minVertex = std::min(minVertex, vertexValue);
                 } else if (fileLine.find("add edge") != string::npos) {
                     // find edge values
                     vertex1 = 0;
@@ -105,18 +127,21 @@ int main() {
             vCounts.push_back(vCount);
             eCounts.push_back(eCount);
             edgePairsArray.push_back(edgePairs);
+            minVertexes.push_back(minVertex);
         }
     }
 
     //! End of File Reading and Manipulation
+
+    //! Start of Graph Creation and Visualization
     
     // Create Instance of Graphs
     Graphs graphs(vCounts);
-    graphs.printInfo(vCounts, eCounts, gCount, edgePairsArray); //remake
-    graphs.makeMatrices(gCount, vCounts, edgePairsArray);
+    
+    graphs.makeMatrices(gCount, minVertexes, vCounts, edgePairsArray);
     graphs.printMatrix();
-
-    //! Start of Graph Creation and Visualization
-
+    graphs.makeAdjacency(gCount, minVertexes, vCounts, edgePairsArray);
+    //! End of Graph Creation and Visualization
+    cout << "done";
     return 0;
 }
