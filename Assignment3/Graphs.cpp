@@ -50,16 +50,28 @@ void Graphs::makeAdjacency(int gCount, std::vector<int> minVertexes, std::vector
     
     // for each graph
     for(int i = 0; i < gCount; i++) {
-        // Resize the adjacency list for the current graph if needed
-        // for each Vertex we will pushback its adjacent vertexes
+        // Resize the adjacency list for each graph to hold the correct number of vertices
+        aList[i].resize(vCounts[i]);
+        // Traverse our Vertexes and add lists for adjacencies
         for(int j  = 0; j < vCounts[i]; j++) {
-            aList[i].push_back(std::vector<int>());
+            //add another array to list
+            aList[i][j] = std::vector<int>();
         }
+        // update adjacencies based on edges while accomodating for where our vertices begin  
         for(const auto& edge : edgePairsArray[i]) {
-            int v1 = edge.first;
-            int v2 = edge.second;
-            aList[i][v1].push_back(v2);
-            aList[i][v2].push_back(v1);
+            //subtract 
+            if(minVertexes[i] >= 0) {
+                int v1 = edge.first;
+                int v2 = edge.second;
+                aList[i][v1].push_back(v2);
+                aList[i][v2].push_back(v1);
+            } else {
+                int v1 = edge.first;
+                int v2 = edge.second;
+                aList[i][v1].push_back(v2);
+                aList[i][v2].push_back(v1);
+            }
+            
         } //pushing back starting at 0 need to adjust according to min vertex instead push all 8 vertice
     }
 }
