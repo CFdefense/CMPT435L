@@ -63,15 +63,35 @@ void Graphs::makeAdjacency(int gCount, std::vector<int> minVertexes, std::vector
             if(minVertexes[i] >= 0) {
                 int v1 = edge.first;
                 int v2 = edge.second;
-                aList[i][v1].push_back(v2);
-                aList[i][v2].push_back(v1);
+                aList[i][v1 - minVertexes[i]].push_back(v2);
+                aList[i][v2 - minVertexes[i]].push_back(v1);
             } else {
                 int v1 = edge.first;
                 int v2 = edge.second;
-                aList[i][v1].push_back(v2);
-                aList[i][v2].push_back(v1);
+                aList[i][v1 + minVertexes[i]].push_back(v2);
+                aList[i][v2 + minVertexes[i]].push_back(v1);
             }
             
         } //pushing back starting at 0 need to adjust according to min vertex instead push all 8 vertice
     }
+}
+
+void Graphs::printAdjacency(int gCount, std::vector<int> minVertexes, std::vector<int> vCounts) {
+
+    // for each graph
+    for(int i = 0; i < gCount; i++) {
+        std::cout << "Adjacency List" << i + 1 << std::endl;
+        // for each vertex
+        for(std::vector<int>::size_type j = 0; j < aList[i].size(); j++) {
+            // for each adjacency in vertex
+            std::cout << "[" << j << "] ";
+            for(std::vector<int>::size_type k = 0; k < aList[i][j].size(); k++) {
+                std::cout << aList[i][j][k] << std::endl;
+            }
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
+    }
+    
+
 }

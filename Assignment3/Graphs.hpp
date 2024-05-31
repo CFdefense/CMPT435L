@@ -12,10 +12,10 @@ class Graphs {
     Graphs(std::vector<int> vCounts);
 
     // Methods
-    void makeMatrices( int gCount, std::vector<int> minVertexes, std::vector<int> vCounts, std::vector<std::vector<std::pair<int, int>>> edgePairsArray );
-    void makeAdjacency( int gCount, std::vector<int> minVertexes, std::vector<int> vCounts, std::vector<std::vector<std::pair<int, int>>> edgePairsArray );
+    void makeMatrices(int gCount, std::vector<int> minVertexes, std::vector<int> vCounts, std::vector<std::vector<std::pair<int, int>>> edgePairsArray);
+    void makeAdjacency(int gCount, std::vector<int> minVertexes, std::vector<int> vCounts, std::vector<std::vector<std::pair<int, int>>> edgePairsArray);
     void printMatrix();
-    void printInfo( std::vector<int> vCounts, std::vector<int> eCounts, int gCount, std::vector<std::vector<std::pair<int,int>>> edgePairsArray );
+    void printAdjacency(int gCount, std::vector<int> minVertexes, std::vector<int> vCounts);
 
     private:
     // Array of matrices

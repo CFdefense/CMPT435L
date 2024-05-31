@@ -141,6 +141,7 @@ int main() {
     graphs.makeMatrices(gCount, minVertexes, vCounts, edgePairsArray);
     graphs.printMatrix();
     graphs.makeAdjacency(gCount, minVertexes, vCounts, edgePairsArray);
+    graphs.printAdjacency(gCount, minVertexes, vCounts);
     //! End of Graph Creation and Visualization
     cout << "done";
     return 0;

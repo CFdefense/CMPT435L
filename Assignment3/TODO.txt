@@ -1,2 +1,1 @@
-Fix Printing debug function
-fix issue with matrix not scaling properly causing seg faults
+Continue with print function for adjacency
