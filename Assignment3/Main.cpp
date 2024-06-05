@@ -1,5 +1,5 @@
 #include "Graphs.hpp"
-
+#include "LinkedObjs.hpp"
 #include <fstream>
 #include <vector>
 #include <iostream>
@@ -15,6 +15,7 @@ int main() {
     vector<int> vCounts; 
     vector<int> eCounts;
     vector<int> minVertexes;
+    vector<LinkedObjs> LinkedLists;
 
     // Counting variables for each graph
     int vCount = 0;
@@ -22,6 +23,7 @@ int main() {
 
     //Needed to indentify when indexing will need to begin before 1
     int minVertex = std::numeric_limits<int>::max();
+    int maxVertex;
 
     // Count number of graphs
     int gCount;
@@ -138,10 +140,30 @@ int main() {
     // Create Instance of Graphs
     Graphs graphs(vCounts);
     
+    //Matrices
     graphs.makeMatrices(gCount, minVertexes, vCounts, edgePairsArray);
     graphs.printMatrix();
+
+    //Adjaciencies
     graphs.makeAdjacency(gCount, minVertexes, vCounts, edgePairsArray);
     graphs.printAdjacency(gCount, minVertexes, vCounts);
+
+    //Linked Objects
+    
+    //Create our nodes for each graph
+    for(int i = 0; i < gCount; i++) {
+        //Determine highest node id
+        if(minVertexes[i] <= 0) {
+            maxVertex = vCounts[i] + minVertexes[i];
+        } else {
+            maxVertex = vCounts[i] - minVertexes[i];
+        }
+        //Create each node
+        for(int j = minVertexes[i]; j< maxVertex; j++) {
+            Node::Node(j, edgePairsArray[j])
+        }
+    }
+    
     //! End of Graph Creation and Visualization
     cout << "done";
     return 0;

@@ -1,1 +1,1 @@
-Continue with print function for adjacency
+Started linked objects

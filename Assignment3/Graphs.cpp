@@ -80,15 +80,14 @@ void Graphs::printAdjacency(int gCount, std::vector<int> minVertexes, std::vecto
 
     // for each graph
     for(int i = 0; i < gCount; i++) {
-        std::cout << "Adjacency List" << i + 1 << std::endl;
+        std::cout << "Adjacency List " << i + 1 << std::endl;
         // for each vertex
-        for(std::vector<int>::size_type j = 0; j < aList[i].size(); j++) {
+        for(std::vector<int>::size_type j = minVertexes[i]; j < aList[i].size(); j++) {
             // for each adjacency in vertex
             std::cout << "[" << j << "] ";
             for(std::vector<int>::size_type k = 0; k < aList[i][j].size(); k++) {
-                std::cout << aList[i][j][k] << std::endl;
+                std::cout << aList[i][j][k] << " ";
             }
-            std::cout << std::endl;
         }
         std::cout << std::endl;
     }
