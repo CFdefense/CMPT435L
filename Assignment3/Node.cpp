@@ -5,7 +5,7 @@ Node::Node(int id, std::vector<std::pair<int, int>> pairs) {
     myId = id;
     isProcessed = false;
     //add neighbors
-    for(int i = 0; i < pairs.size(); i++) {
+    for(std::vector<int>::size_type i = 0; i < pairs.size(); i++) {
         int first = pairs[i].first;
         int second = pairs[i].second;
         if(first == myId) {

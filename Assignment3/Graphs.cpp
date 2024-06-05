@@ -79,11 +79,18 @@ void Graphs::makeAdjacency(int gCount, std::vector<int> minVertexes, std::vector
 void Graphs::printAdjacency(int gCount, std::vector<int> minVertexes, std::vector<int> vCounts) {
     // for each graph
     for(int i = 0; i < gCount; i++) {
+        //find offset
+        int offset = 0;
+        if(minVertexes[i] <= 0) {
+            offset -= minVertexes[i];
+        } else {
+            offset += minVertexes[i];
+        }
         std::cout << "Adjacency List " << i + 1 << std::endl;
         // for each vertex
-        for(std::vector<int>::size_type j = minVertexes[i]; j < aList[i].size(); j++) {
+        for(std::vector<int>::size_type j = 0; j < aList[i].size(); j++) {
             // for each adjacency in vertex
-            std::cout << "[" << j << "] ";
+            std::cout << "[" << j+offset << "] ";
             for(std::vector<int>::size_type k = 0; k < aList[i][j].size(); k++) {
                 std::cout << aList[i][j][k] << " ";
             }
@@ -91,6 +98,4 @@ void Graphs::printAdjacency(int gCount, std::vector<int> minVertexes, std::vecto
         }
         std::cout << std::endl;
     }
-    
-
 }
