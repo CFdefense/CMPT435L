@@ -1,1 +1,1 @@
-Started linked objects
+fix adj print

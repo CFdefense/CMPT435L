@@ -77,7 +77,6 @@ void Graphs::makeAdjacency(int gCount, std::vector<int> minVertexes, std::vector
 }
 
 void Graphs::printAdjacency(int gCount, std::vector<int> minVertexes, std::vector<int> vCounts) {
-
     // for each graph
     for(int i = 0; i < gCount; i++) {
         std::cout << "Adjacency List " << i + 1 << std::endl;
@@ -88,6 +87,7 @@ void Graphs::printAdjacency(int gCount, std::vector<int> minVertexes, std::vecto
             for(std::vector<int>::size_type k = 0; k < aList[i][j].size(); k++) {
                 std::cout << aList[i][j][k] << " ";
             }
+            std::cout << std::endl;
         }
         std::cout << std::endl;
     }

@@ -1,5 +1,5 @@
 #include "Graphs.hpp"
-#include "LinkedObjs.hpp"
+#include "Node.hpp"
 #include <fstream>
 #include <vector>
 #include <iostream>
@@ -15,7 +15,7 @@ int main() {
     vector<int> vCounts; 
     vector<int> eCounts;
     vector<int> minVertexes;
-    vector<LinkedObjs> LinkedLists;
+    vector<vector<Node>> nodeList;
 
     // Counting variables for each graph
     int vCount = 0;
@@ -26,7 +26,7 @@ int main() {
     int maxVertex;
 
     // Count number of graphs
-    int gCount;
+    int gCount = 0;
 
     //Dynamic 2d Array to Hold Edge Pairs of each graph
     vector<vector<pair<int, int>>> edgePairsArray; // 2D array to hold edge pairs for each graph
@@ -133,6 +133,9 @@ int main() {
         }
     }
 
+    //close file
+    myFile.close();
+
     //! End of File Reading and Manipulation
 
     //! Start of Graph Creation and Visualization
@@ -150,6 +153,9 @@ int main() {
 
     //Linked Objects
     
+    //resize our nodeList to fit all graphs
+    nodeList.resize(gCount);
+    
     //Create our nodes for each graph
     for(int i = 0; i < gCount; i++) {
         //Determine highest node id
@@ -159,8 +165,8 @@ int main() {
             maxVertex = vCounts[i] - minVertexes[i];
         }
         //Create each node
-        for(int j = minVertexes[i]; j< maxVertex; j++) {
-            Node::Node(j, edgePairsArray[j])
+        for(int j = minVertexes[i]; j < maxVertex; j++) {
+            nodeList[i].push_back(Node(j, edgePairsArray[i]));
         }
     }
     
