@@ -160,17 +160,41 @@ int main() {
     for(int i = 0; i < gCount; i++) {
         //Determine highest node id
         if(minVertexes[i] <= 0) {
-            maxVertex = vCounts[i] + minVertexes[i];
-        } else {
             maxVertex = vCounts[i] - minVertexes[i];
+        } else {
+            maxVertex = vCounts[i] + minVertexes[i];
         }
         //Create each node
+        cout << gCount << " " << maxVertex;
         for(int j = minVertexes[i]; j < maxVertex; j++) {
             nodeList[i].push_back(Node(j, edgePairsArray[i]));
         }
+
+        //now we link each node and its neighbors (Had to wait till to avoid seg faulting)
+
+        //for each node
+        for(Node& currNode : nodeList[i]) {
+            //for each neighbor
+            for(int currNeighbor : currNode.myNeighbors) {
+                //find neighbor and push back onto Node Neighbors
+                for (Node& potentialNeighbor : nodeList[i]) {
+                    if (potentialNeighbor.getID() == currNeighbor) {
+                        currNode.addNodeNeighbor(&potentialNeighbor);
+                        break;
+                    }
+                }
+            }
+        }
     }
-    
     //! End of Graph Creation and Visualization
+
+    //! Start of Depth-First Traversals and Breadth First Traversals
+
+
+
+
+    //! End of Depth-First Traversals and Breadth First Traversals
+    
     cout << "done";
     return 0;
 }

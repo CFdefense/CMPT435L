@@ -11,11 +11,14 @@ class Node {
 
         //getters
         int getID();
+
+        std::vector<int> myNeighbors;
+        std::vector<Node*> myNodeNeighbors;
+        void addNodeNeighbor(Node* newNeighbor);
         
     private:
         int myId;
-        std::vector<int> myNeighbors;
-        bool isProcessed;
+        bool isProcessed = false;
         void addNeighbor(int neighborID);
 };
 
