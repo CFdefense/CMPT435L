@@ -13,13 +13,13 @@
         //Add if Empty, if not add to front
         if(isEmpty()) {
             result = true;
-            myNode* newGuy = new myNode(newValue);
+            Node* newGuy = new Node(newValue);
             myFront = newGuy;
             myRear = newGuy;
         }
         else if(!isFull()) {
             result = true;
-            myNode* newGuy = new myNode(newValue);
+            Node* newGuy = new Node();
             newGuy->setNext(myFront);
             myFront = newGuy;
         }
@@ -27,11 +27,11 @@
     };
     
     //deQueue method
-    myNode* Queue::deQueue() {
+    Node* Queue::deQueue() {
         //Instance Variables
-        myNode* result = nullptr;
-        myNode* curr = myFront;
-        myNode* prev = nullptr;
+        Node* result = nullptr;
+        Node* curr = myFront;
+        Node* prev = nullptr;
 
         if(!isEmpty()) {
             //Iterate through the linked list until the last node

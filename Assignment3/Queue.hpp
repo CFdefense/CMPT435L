@@ -11,14 +11,14 @@ public:
 
     // Member functions
     bool enQueue(int newValue);
-    myNode* deQueue();
+    Node* deQueue();
     bool isFull();
     bool isEmpty();
     std::string printqList();
 
 private:
-    myNode* myFront;
-    myNode* myRear;
+    Node* myFront;
+    Node* myRear;
 };
 
 #endif
