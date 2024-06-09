@@ -11,6 +11,10 @@ class Node {
 
         //getters
         int getID();
+        bool getProcessed();
+
+        //setter
+        void updProcessed();
 
         std::vector<int> myNeighbors;
         std::vector<Node*> myNodeNeighbors;

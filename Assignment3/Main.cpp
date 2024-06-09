@@ -1,5 +1,5 @@
 #include "Graphs.hpp"
-#include "Node.hpp"
+#include "Traversals.hpp"
 #include <fstream>
 #include <vector>
 #include <iostream>
@@ -165,7 +165,6 @@ int main() {
             maxVertex = vCounts[i] + minVertexes[i];
         }
         //Create each node
-        cout << gCount << " " << maxVertex;
         for(int j = minVertexes[i]; j < maxVertex; j++) {
             nodeList[i].push_back(Node(j, edgePairsArray[i]));
         }
@@ -190,7 +189,13 @@ int main() {
 
     //! Start of Depth-First Traversals and Breadth First Traversals
 
+    //Execute DPS Traversal for each Graph
+    for(int i = 0; i < gCount; i++) {
+        Traversals::DPS(&nodeList[i][0]);
+        cout << endl;
+    }
 
+    //Execute BFS Traversal for each Graph
 
 
     //! End of Depth-First Traversals and Breadth First Traversals

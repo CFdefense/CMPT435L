@@ -28,3 +28,11 @@
     int Node::getID() {
         return myId;
     }
+
+    bool Node::getProcessed() {
+        return isProcessed;
+    }
+
+    void Node::updProcessed() {
+        isProcessed = true;
+    }
