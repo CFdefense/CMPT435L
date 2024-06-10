@@ -4,6 +4,7 @@
     Node::Node(int id, std::vector<std::pair<int, int>> pairs) {
         myId = id;
         isProcessed = false;
+        myNext = nullptr;
         //add neighbors
         for(std::vector<int>::size_type i = 0; i < pairs.size(); i++) {
             int first = pairs[i].first;
@@ -29,10 +30,18 @@
         return myId;
     }
 
+    Node* Node::getNext() {
+        return myNext;
+    }
+
     bool Node::getProcessed() {
         return isProcessed;
     }
 
-    void Node::updProcessed() {
-        isProcessed = true;
+    void Node::setProcessed(bool upd) {
+        isProcessed = upd;
+    }
+
+    void Node::setNext(Node* newNode) {
+        myNext = newNode;
     }

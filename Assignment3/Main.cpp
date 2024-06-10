@@ -1,11 +1,14 @@
 #include "Graphs.hpp"
 #include "Traversals.hpp"
+#include "BST.hpp"
 #include <fstream>
 #include <vector>
 #include <iostream>
 #include <string>
 #include <limits>
 using namespace std;
+
+const int arraySize = 666;
 
 int main() {
 
@@ -31,6 +34,16 @@ int main() {
     //Dynamic 2d Array to Hold Edge Pairs of each graph
     vector<vector<pair<int, int>>> edgePairsArray; // 2D array to hold edge pairs for each graph
     vector<pair<int, int>> edgePairs; // for storing each array through each graph iteration
+
+    //BST Instance
+    BST binaryTree;
+
+    //magicItems Variables
+    string fileArray[arraySize];
+    string mgcFileLine;
+    int itemNum = 0;
+    int totalComparisons = 0;
+    int avgComparisons;
 
     //Other Variables
     string fileLine;
@@ -189,17 +202,78 @@ int main() {
 
     //! Start of Depth-First Traversals and Breadth First Traversals
 
-    //Execute DPS Traversal for each Graph
+    //Execute DFS Traversal for each Graph
+    cout << "Depth-First Search" << endl;
     for(int i = 0; i < gCount; i++) {
-        Traversals::DPS(&nodeList[i][0]);
+        cout << "Graph " << i+1 << ": ";
+        Traversals::DFS(&nodeList[i][0]);
         cout << endl;
+    }
+    cout << endl;
+    //reset processed for each Node
+    for(int i = 0; i < gCount; i++) {
+        for(std::vector<Node>::size_type j = 0; j < nodeList[i].size(); j++) {
+            nodeList[i][j].setProcessed(false);
+        }
     }
 
     //Execute BFS Traversal for each Graph
-
+    cout << "Breath-first Search" << endl;
+    for(int i = 0; i < gCount; i++) {
+        cout << "Graph " << i+1 << ": ";
+        Traversals::BFS(&nodeList[i][0]);
+        cout << endl;
+    }
 
     //! End of Depth-First Traversals and Breadth First Traversals
     
-    cout << "done";
+    //! Start of Binary Search Tree
+
+    //Read in magicitems, filter and store them
+    //Open File to be Read
+    ifstream myMgcFile ("magicitems.txt");
+    
+    if(!myMgcFile) {
+        cout << "File Could Not Be Read" << endl;
+    } else {
+        //Check to see if file s
+        while(!myMgcFile.eof()) {
+
+            //get next line from file to manipulate
+            getline(myMgcFile, mgcFileLine);
+
+            //Filter the inputs 
+            for(std::string::size_type i = 0; i < mgcFileLine.length(); i++) {
+                //Check char's ASCII to see if its uppercase
+                if(int(mgcFileLine[i] >= 65 && int(mgcFileLine[i] <= 90))) {
+                    mgcFileLine[i] = char(int(mgcFileLine[i] + 32));
+                // Check for spaces
+                } else if(mgcFileLine[i] == ' '|| mgcFileLine[i] == '\t') { 
+                mgcFileLine.erase(i, 1);
+                i--; // Decrement i to handle the shifting of characters after removing the space
+                } 
+            }
+
+            //Add filtered String to the array
+            fileArray[itemNum] = mgcFileLine;
+            itemNum++;
+
+        }
+    }
+
+    //add all of the magic items into the binary tree
+
+    for(int i = 0; i < itemNum; i++) {
+        cout << fileArray[i] << ": ";
+        binaryTree.populate(fileArray[i], totalComparisons);
+        cout << endl;
+    }
+
+    //print summary information
+    avgComparisons = totalComparisons / arraySize;
+    cout << endl << "Average Comparisons: " << avgComparisons << endl;
+
+    //! End of Binary Search Tree
+    
     return 0;
 }

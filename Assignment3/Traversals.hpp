@@ -8,7 +8,8 @@
 class Traversals {
 
     public:
-    static void DPS(Node* vertex);
+    static void DFS(Node* vertex);
+    static void BFS(Node* vertex);
 };
 
 #endif

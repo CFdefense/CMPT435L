@@ -60,6 +60,7 @@
         "random": "cpp",
         "vector": "cpp",
         "iomanip": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "queue": "cpp"
     }
 }

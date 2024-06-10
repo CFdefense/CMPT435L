@@ -7,19 +7,17 @@
     };
 
     //enQueue method
-    bool Queue::enQueue(int newValue) {
+    bool Queue::enQueue(Node* newGuy) {
         //Instance Variables
         bool result = false;
         //Add if Empty, if not add to front
         if(isEmpty()) {
             result = true;
-            Node* newGuy = new Node(newValue);
             myFront = newGuy;
             myRear = newGuy;
         }
         else if(!isFull()) {
             result = true;
-            Node* newGuy = new Node();
             newGuy->setNext(myFront);
             myFront = newGuy;
         }
@@ -65,13 +63,12 @@
         return(myFront == nullptr);
     };
 
-    //WORK ON
     std::string Queue::printqList() {
         //instance variables
         std::string output;
-        myNode* curr = myFront;
+        Node* curr = myFront;
         while (curr != nullptr) {
-            output += std::to_string(curr->getData()) + " ";
+            output += std::to_string(curr->getID()) + " ";
             curr = curr->getNext();
         }
     return output;

@@ -12,9 +12,12 @@ class Node {
         //getters
         int getID();
         bool getProcessed();
+        Node* getNext();
 
         //setter
-        void updProcessed();
+        void setProcessed(bool upd);
+        void setNext(Node* newNode);
+
 
         std::vector<int> myNeighbors;
         std::vector<Node*> myNodeNeighbors;
@@ -24,6 +27,7 @@ class Node {
         int myId;
         bool isProcessed = false;
         void addNeighbor(int neighborID);
+        Node* myNext;
 };
 
 #endif

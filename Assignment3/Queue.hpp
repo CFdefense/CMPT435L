@@ -10,7 +10,7 @@ public:
     Queue();
 
     // Member functions
-    bool enQueue(int newValue);
+    bool enQueue(Node* newGuy);
     Node* deQueue();
     bool isFull();
     bool isEmpty();
