@@ -12,7 +12,7 @@ const int arraySize = 666;
 
 int main() {
 
-    //! File Reading and Manipulation
+    //! Start of File Reading and Manipulation
 
     // Counting Vertices and Edges using dynamic arrays
     vector<int> vCounts; 
