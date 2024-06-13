@@ -1,1 +1,3 @@
-Identify issues with bellman Ford not correctly giving distances
+fix bellman ford?
+
+spices
