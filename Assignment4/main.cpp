@@ -31,7 +31,6 @@ int main() {
     // Variables for file Manipulation of Spice
     string fileLine2;
     string newSpiceName;
-    int firstEnd;
     bool firstFound = false;
     bool second2Found = false;
     bool thirdFound = false;
@@ -168,24 +167,25 @@ int main() {
     //open file to be read
     ifstream myFile2 ("spice.txt");
     
-    if(!myFile) {
+    if(!myFile2) {
         cout << "File Could Not Be Read" << endl;
     } else {
         // While there is a line to look at
         while (getline(myFile2, fileLine2)) {
-            if (fileLine2.find("spice") != string::npos) { // check if line says spice
+            if (fileLine2.find("spice name") != string::npos) { // check if line says spice
                 // found a line indicating a new spice
                 // ex: "spice name = red;    total_price =  4.0;  qty = 4"
 
                 // find = for myName
-                int i = 0;
+                basic_string<char>::size_type i = 0;
                 while(!firstFound && i < fileLine2.length()) {
                     if(fileLine2[i] ==  '=') {
-                        i++; // skip space
+                        i = i + 2; // skip space
                         while(fileLine2[i] != ';') {
                             newSpiceName += fileLine2[i];
                             i++;
                         }
+                        firstFound = true;
                     }
                     i++;
                 }
@@ -193,12 +193,13 @@ int main() {
                 // find = for myTotPrice
                 while(!second2Found && i < fileLine2.length()) {
                     if(fileLine2[i] == '=') {
-                        i++; // skip space
+                        i = i + 3; // skip space
                         string priceStr;
-                        while(fileLine[i] != ';') {
+                        while(fileLine2[i] != ';') {
                             priceStr += fileLine2[i];
                             i++;
                         }
+                        second2Found = true;
                         newTotPrice = stof(priceStr); // convert string to float
                     }
                     i++;
@@ -209,7 +210,7 @@ int main() {
                         i++; // skip space
                         bool foundDigit = false;
                         newQuant = 0;
-                        while(fileLine2[i] < fileLine2.length()) {
+                        while(i < int(fileLine2.length())) {
                             if (isdigit(fileLine2[i])) {
                             foundDigit = true;
                             newQuant = newQuant * 10 + (fileLine2[i] - '0');
@@ -217,23 +218,28 @@ int main() {
                             // If a digit has been found and the current character is not a digit then were done w 
                             break;
                             }
+                            i++;
                         }
+                        thirdFound = true;
                     }
                     i++;
                 }
 
                 // create the spice and add to the list
-                spiceList.push_back(Spices(newSpiceName, newTotPrice, newQuant));
+                if(firstFound && second2Found && thirdFound) {
+                    spiceList.push_back(Spices(newSpiceName, newTotPrice, newQuant));
+                }
+                
 
             } else if(fileLine2.find("knapsack") != string::npos) {
                 // found a line indicating a new knapsack
                 // ex: knapsack capacity =  1;
-                for(int i = 0; i < fileLine2.length(); i++) {
+                for(int i = 0; i < int(fileLine2.length()); i++) {
                     if(fileLine2[i] == '=') {
                         i++; //skip space
                         newSize = 0;
                         bool foundDigit = false;
-                        while(fileLine2[i] < fileLine2.length()) {
+                        while(fileLine2[i] < int(fileLine2.length())) {
                             if(isdigit(fileLine2[i])) {
                                 newSize = newSize * 10 + (fileLine2[i] - '0');
                                 foundDigit = true;
@@ -251,6 +257,9 @@ int main() {
 
         }
     }
+
+    // close the file
+    myFile2.close();
 
     //! End of File Reading and Manipulation
 

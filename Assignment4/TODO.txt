@@ -1,3 +1,3 @@
 fix bellman ford?
 
-spices - test file input and then add to their respective data storages
+spices - test is reading correctly I believe inputs are not being reset correctly.
