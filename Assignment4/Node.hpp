@@ -7,27 +7,26 @@ class Node {
 
     public:
         //constructor
-        Node(int id, std::vector<std::pair<int,int>> myNeighbors);
+        Node(int vectorID);
 
         //getters
         int getID();
         bool getProcessed();
-        Node* getNext();
+        int getDistance();
 
         //setter
-        void setProcessed(bool upd);
-        void setNext(Node* newNode);
+        void setProcessed(bool newProcessed);
+        void setDistance(int newDistance);
+        //methods
+        void addNodeNeighbor(Node* neighbor, int cost);
 
-
-        std::vector<int> myNeighbors;
-        std::vector<Node*> myNodeNeighbors;
-        void addNodeNeighbor(Node* newNeighbor);
+        std::vector<std::pair<Node*,int>> myNodeNeighbors;
         
     private:
-        int myId;
+        //variables
+        int myID;
         bool isProcessed = false;
-        void addNeighbor(int neighborID);
-        Node* myNext;
+        int myDistance;
 };
 
 #endif

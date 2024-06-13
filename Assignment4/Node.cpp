@@ -1,47 +1,31 @@
     #include "Node.hpp"
 
-
-    Node::Node(int id, std::vector<std::pair<int, int>> pairs) {
-        myId = id;
+    Node::Node(int vectorID) {
+        myID = vectorID;
         isProcessed = false;
-        myNext = nullptr;
-        //add neighbors
-        for(std::vector<int>::size_type i = 0; i < pairs.size(); i++) {
-            int first = pairs[i].first;
-            int second = pairs[i].second;
-            if(first == myId) {
-                this->addNeighbor(second);
-            }
-            if(second == myId) {
-                this->addNeighbor(first);
-            }
-        }
+        myDistance = -1;
     }
 
-    void Node::addNeighbor(int neighborID) {
-        myNeighbors.push_back(neighborID);
-    }
-
-    void Node::addNodeNeighbor(Node* newNeighbor) {
-        myNodeNeighbors.push_back(newNeighbor);
+    void Node::addNodeNeighbor(Node* neighbor, int cost) {
+        myNodeNeighbors.push_back(std::pair(neighbor,cost)); //make pair and push
     }
 
     int Node::getID() {
-        return myId;
-    }
-
-    Node* Node::getNext() {
-        return myNext;
+        return myID;
     }
 
     bool Node::getProcessed() {
         return isProcessed;
     }
 
-    void Node::setProcessed(bool upd) {
-        isProcessed = upd;
+    void Node::setProcessed(bool newProcessed) {
+        isProcessed = newProcessed;
     }
 
-    void Node::setNext(Node* newNode) {
-        myNext = newNode;
+    void Node::setDistance(int newDistance) {
+        myDistance = newDistance;
+    }
+
+    int Node::getDistance() {
+        return myDistance;
     }

@@ -1,2 +1,1 @@
-1. Read in file correctly and create a list of lists of nodes
-2. Manipulate nodes to now work as directed nodes
+Identify issues with bellman Ford not correctly giving distances
