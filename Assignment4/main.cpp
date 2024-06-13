@@ -1,4 +1,5 @@
 #include "SSSP.hpp"
+#include "Knapsack.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -8,7 +9,7 @@
 using namespace std;
 
 int main() {
-    //Variables for file Manipulation
+    // Variables for file Manipulation of Graphs
     string fileLine;
     bool newGraph = true;
     vector<vector<int>> aVertexes;
@@ -18,7 +19,7 @@ int main() {
     vector<int> minVertexes;
     int minVertex = std::numeric_limits<int>::max();
 
-    //Variables for Graph Creation
+    // Variables for Graph Creation
     vector<vector<Node>> nodeList;
     int findFirst;
     int findSecond;
@@ -26,9 +27,23 @@ int main() {
     bool secondFound;
     bool isNegCycle;
     vector<bool> negCycles;
+
+    // Variables for file Manipulation of Spice
+    string fileLine2;
+    string newSpiceName;
+    int firstEnd;
+    bool firstFound = false;
+    bool second2Found = false;
+    bool thirdFound = false;
+    int newQuant = 0;
+    float newTotPrice;
+    vector<Spices> spiceList;
+    vector<Knapsack> knapsackList;
+    int newSize;
+
     //! Start of File Reading and Manipulation
 
-    //read in a file and created directed weighted graphs
+    //read in a file
     // Open File to be Read
     ifstream myFile ("graphs2.txt");
     
@@ -146,6 +161,97 @@ int main() {
     //close file
     myFile.close();
 
+
+    // Now Spices
+
+    // read in a file
+    //open file to be read
+    ifstream myFile2 ("spice.txt");
+    
+    if(!myFile) {
+        cout << "File Could Not Be Read" << endl;
+    } else {
+        // While there is a line to look at
+        while (getline(myFile2, fileLine2)) {
+            if (fileLine2.find("spice") != string::npos) { // check if line says spice
+                // found a line indicating a new spice
+                // ex: "spice name = red;    total_price =  4.0;  qty = 4"
+
+                // find = for myName
+                int i = 0;
+                while(!firstFound && i < fileLine2.length()) {
+                    if(fileLine2[i] ==  '=') {
+                        i++; // skip space
+                        while(fileLine2[i] != ';') {
+                            newSpiceName += fileLine2[i];
+                            i++;
+                        }
+                    }
+                    i++;
+                }
+                
+                // find = for myTotPrice
+                while(!second2Found && i < fileLine2.length()) {
+                    if(fileLine2[i] == '=') {
+                        i++; // skip space
+                        string priceStr;
+                        while(fileLine[i] != ';') {
+                            priceStr += fileLine2[i];
+                            i++;
+                        }
+                        newTotPrice = stof(priceStr); // convert string to float
+                    }
+                    i++;
+                }
+                // find = for myQuant
+                while(!thirdFound && i < fileLine2.length()) {
+                    if(fileLine2[i] == '=') {
+                        i++; // skip space
+                        bool foundDigit = false;
+                        newQuant = 0;
+                        while(fileLine2[i] < fileLine2.length()) {
+                            if (isdigit(fileLine2[i])) {
+                            foundDigit = true;
+                            newQuant = newQuant * 10 + (fileLine2[i] - '0');
+                            } else if (foundDigit) {
+                            // If a digit has been found and the current character is not a digit then were done w 
+                            break;
+                            }
+                        }
+                    }
+                    i++;
+                }
+
+                // create the spice and add to the list
+                spiceList.push_back(Spices(newSpiceName, newTotPrice, newQuant));
+
+            } else if(fileLine2.find("knapsack") != string::npos) {
+                // found a line indicating a new knapsack
+                // ex: knapsack capacity =  1;
+                for(int i = 0; i < fileLine2.length(); i++) {
+                    if(fileLine2[i] == '=') {
+                        i++; //skip space
+                        newSize = 0;
+                        bool foundDigit = false;
+                        while(fileLine2[i] < fileLine2.length()) {
+                            if(isdigit(fileLine2[i])) {
+                                newSize = newSize * 10 + (fileLine2[i] - '0');
+                                foundDigit = true;
+                            } else if(foundDigit) {
+                                break;
+                            }
+                            
+                        }
+                    }
+                }
+                //create knapsack and add to our list
+                knapsackList.push_back(Knapsack(newSize));
+
+            }
+
+        }
+    }
+
     //! End of File Reading and Manipulation
 
     //! Start of Graph Creation and Visualization
@@ -227,7 +333,14 @@ int main() {
         }
     }
 
+    // ! End of Bellman-Ford Single-Source Shortest Path Algorithm
+
+    // ! Begin of Greedy Algorithm Spice Stealing SUH-OOST-AGEESTA-FALLAH
+
     
+
+
+    // ! End of Greedy Algorithm Spice Stealing SUH-OOST-AGEESTA-FALLAH
     
     return 0;
 }
