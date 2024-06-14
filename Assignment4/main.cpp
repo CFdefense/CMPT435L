@@ -176,8 +176,15 @@ int main() {
                 // found a line indicating a new spice
                 // ex: "spice name = red;    total_price =  4.0;  qty = 4"
 
-                // find = for myName
+                // reset our values
                 basic_string<char>::size_type i = 0;
+                firstFound = false;
+                second2Found = false;
+                thirdFound = false;
+                newSpiceName = "";
+                newQuant = 0;
+                newTotPrice = 0;
+                // find = for myName
                 while(!firstFound && i < fileLine2.length()) {
                     if(fileLine2[i] ==  '=') {
                         i = i + 2; // skip space
@@ -193,7 +200,7 @@ int main() {
                 // find = for myTotPrice
                 while(!second2Found && i < fileLine2.length()) {
                     if(fileLine2[i] == '=') {
-                        i = i + 3; // skip space
+                        i = i + 2; // skip space
                         string priceStr;
                         while(fileLine2[i] != ';') {
                             priceStr += fileLine2[i];
@@ -210,7 +217,7 @@ int main() {
                         i++; // skip space
                         bool foundDigit = false;
                         newQuant = 0;
-                        while(i < int(fileLine2.length())) {
+                        while(int(i) < int(fileLine2.length())) {
                             if (isdigit(fileLine2[i])) {
                             foundDigit = true;
                             newQuant = newQuant * 10 + (fileLine2[i] - '0');
@@ -231,7 +238,7 @@ int main() {
                 }
                 
 
-            } else if(fileLine2.find("knapsack") != string::npos) {
+            } else if(fileLine2.find("knapsack capacity") != string::npos) {
                 // found a line indicating a new knapsack
                 // ex: knapsack capacity =  1;
                 for(int i = 0; i < int(fileLine2.length()); i++) {
@@ -239,13 +246,14 @@ int main() {
                         i++; //skip space
                         newSize = 0;
                         bool foundDigit = false;
-                        while(fileLine2[i] < int(fileLine2.length())) {
+                        while(fileLine2[i] != ';') {
                             if(isdigit(fileLine2[i])) {
                                 newSize = newSize * 10 + (fileLine2[i] - '0');
                                 foundDigit = true;
                             } else if(foundDigit) {
                                 break;
                             }
+                            i++;
                             
                         }
                     }
