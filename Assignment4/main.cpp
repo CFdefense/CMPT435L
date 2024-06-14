@@ -354,9 +354,12 @@ int main() {
 
     // ! Begin of Greedy Algorithm Spice Stealing SUH-OOST-AGEESTA-FALLAH
 
-    
+    //we have created already two vectors of our spice nodes and our knapsacks
 
-
+    //now we will have every knapsack preform 'greedy' to fill itself
+    for(int i = 0; i < knapsackList.size(); i++) {
+        knapsackList[i].greedy(spiceList);
+    }
     // ! End of Greedy Algorithm Spice Stealing SUH-OOST-AGEESTA-FALLAH
     
     return 0;

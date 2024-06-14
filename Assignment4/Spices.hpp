@@ -9,9 +9,11 @@ class Spices {
 
     //Constructor
     Spices(std::string newName, float newPrice, int newQuant);
+    Spices();
 
     // Setters
     void setQuant(int newQuant);
+    void setTotPrice(float newTotPrice);
 
     // Getters
     std::string getName();

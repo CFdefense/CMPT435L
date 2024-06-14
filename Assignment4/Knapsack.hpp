@@ -8,15 +8,19 @@ class Knapsack {
 
     public:
 
-    //constructor
+    // constructor
     Knapsack(int newSize);
 
-    //get
+    // get
     int getSize();
+
+    // method
+    void greedy(std::vector<Spices> spiceList);
 
     private:
     int mySize;
     std::vector<Spices> mySpices;
+    int mySpiceCount;
     
 };
 

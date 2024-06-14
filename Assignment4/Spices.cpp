@@ -6,8 +6,18 @@ Spices::Spices(std::string newName, float newPrice, int newQuant) {
     myQuant = newQuant;
 }
 
+Spices::Spices() {
+    myName = "";
+    myTotPrice = 0;
+    myQuant = 0;
+}
+
 void Spices::setQuant(int newQuant) {
     myQuant = newQuant;
+}
+
+void Spices::setTotPrice(float newTotPrice) {
+    myTotPrice = newTotPrice;
 }
 
 std::string Spices::getName() {
