@@ -3,6 +3,7 @@
 
 #include "Spices.hpp"
 #include <vector>
+#include <iostream>
 
 class Knapsack {
 
@@ -15,12 +16,15 @@ class Knapsack {
     int getSize();
 
     // method
-    void greedy(std::vector<Spices> spiceList);
-
+    void greedy(std::vector<Spices*> spiceList, float* totalPrice);
+    void printResult();
+    void setTotPrice(float newTotalPrice);
+    
     private:
     int mySize;
-    std::vector<Spices> mySpices;
+    std::vector<Spices*> mySpices;
     int mySpiceCount;
+    int myTotPrice;
     
 };
 

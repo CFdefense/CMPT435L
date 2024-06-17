@@ -36,7 +36,8 @@ int main() {
     bool thirdFound = false;
     int newQuant = 0;
     float newTotPrice;
-    vector<Spices> spiceList;
+    vector<Spices*> spiceList;
+    vector<Spices*> spiceListCopy;
     vector<Knapsack> knapsackList;
     int newSize;
 
@@ -234,7 +235,7 @@ int main() {
 
                 // create the spice and add to the list
                 if(firstFound && second2Found && thirdFound) {
-                    spiceList.push_back(Spices(newSpiceName, newTotPrice, newQuant));
+                    spiceList.push_back(new Spices(newSpiceName, newTotPrice, newQuant));
                 }
                 
 
@@ -356,12 +357,29 @@ int main() {
 
     //we have created already two vectors of our spice nodes and our knapsacks
 
-    //now we will have every knapsack preform 'greedy' to fill itself
-    for(int i = 0; i < knapsackList.size(); i++) {
-        knapsackList[i].greedy(spiceList);
+    //now we will have every knapsack preform 'greedy' to fill itself optimally
+    for(vector<Knapsack>::size_type i = 0; i < knapsackList.size(); i++) {
+        // make a copy of our spice list so we can reset our spice list everytime
+        float totalPrice = 0;
+        spiceListCopy.clear();
+        for(Spices* spice : spiceList) {
+            // preform a deep copy to avoid reference sharing
+            Spices* copiedSpice = new Spices(*spice);
+            spiceListCopy.push_back(copiedSpice);
+        }
+
+        // call greedy on copied list
+        knapsackList[i].greedy(spiceListCopy, &totalPrice);
+        knapsackList[i].setTotPrice(totalPrice);
+    }
+
+    cout << endl;
+    // output greedy results
+    for(Knapsack knapsacks : knapsackList) {
+        knapsacks.printResult();
     }
     // ! End of Greedy Algorithm Spice Stealing SUH-OOST-AGEESTA-FALLAH
-    
+
     return 0;
 }
 
