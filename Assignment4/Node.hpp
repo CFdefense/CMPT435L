@@ -21,6 +21,7 @@ class Node {
         void addNodeNeighbor(Node* neighbor, int cost);
 
         std::vector<std::pair<Node*,int>> myNodeNeighbors;
+        std::vector<int> myPath;
         
     private:
         //variables

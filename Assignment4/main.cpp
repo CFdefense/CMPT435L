@@ -26,7 +26,7 @@ int main() {
     Node* second;
     bool secondFound;
     bool isNegCycle;
-    vector<bool> negCycles;
+    vector<bool> notNegCycles;
 
     // Variables for file Manipulation of Spice
     string fileLine2;
@@ -334,23 +334,20 @@ int main() {
         Node source = nodeList[i][0];
         isNegCycle = SSSP::bellmanFord(&source, nodeList[i]);
 
-        //store the results of each bellman
-        negCycles.push_back(isNegCycle);
+        // store the bool results of each bellman
+        notNegCycles.push_back(isNegCycle);
     }
     
-    //print results
-    for(vector<vector<Node>>::size_type i = 0; i < nodeList.size(); i++) {
-        cout << "SSSP Source on Graph #" << i + 1 << ":" << endl;
-        if(!negCycles[i]) {
-            cout << "Source Node : " << nodeList[i][0].getID() << endl;
-            for(vector<Node>::size_type j = 0; j < nodeList[i].size(); j++) {
-            cout << "Node : " << nodeList[i][j].getID() << " Distance : " << nodeList[i][j].getDistance() << endl;
-            }
-        } else {
-            cout << "Negative Cycle Exists - Bellman Ford Fails" << endl;
-        }
-    }
+    // print results
 
+    // for each graph
+    cout << "Bellman-Ford: Single Source Shortest Path Results" << endl;
+    for(vector<vector<Node>>::size_type i = 0; i < nodeList.size(); i++) {
+        cout << "-- Graph #" << i + 1 << endl;
+        SSSP::printResults(nodeList[i]);
+        cout << endl;
+    }
+    
     // ! End of Bellman-Ford Single-Source Shortest Path Algorithm
 
     // ! Begin of Greedy Algorithm Spice Stealing SUH-OOST-AGEESTA-FALLAH

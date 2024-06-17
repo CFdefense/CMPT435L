@@ -1,3 +1,1 @@
-fix bellman ford!!!!
-
-spices - done
+writeup and garbage collection
