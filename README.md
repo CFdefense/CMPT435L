@@ -1,6 +1,5 @@
-# Marist Algorithms Class by Professor Labouseur
+# Marist College 'Algorithm Analysis and Design' Class by Professor Labouseur
 ## Self-Taught and Completed - Summer '24
-
 
 ### Topics Covered
 - **Data Structures**
