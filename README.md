@@ -14,3 +14,5 @@
   
 
 ## LaTeX Writeups and Some Code Adjustments May be Required
+
+#### Class Materials Found Here: https://www.labouseur.com/courses/compilers/
