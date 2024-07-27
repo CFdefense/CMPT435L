@@ -3,6 +3,7 @@
 
 <h3 align ="center">Topics Covered</h3>
 <p align="center">
+  <div align="center">
   <ul>
     <li>Data Structures</li>
     <li>Sorting</li>
@@ -13,6 +14,7 @@
     <li>Dynamic Programming</li>
     <li>Greedy Algorithms</li>
   </ul>
+  </div>
 </p>
 LaTeX Writeups and Some Code Adjustments May be Required For Class Completion
 #### Class Materials Found Here: https://www.labouseur.com/courses/compilers/
