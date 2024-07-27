@@ -2,14 +2,17 @@
 <h2 align="center">Self-Taught and Completed - Summer '24</h2>
 
 <h3 align ="center">Topics Covered</h3>
-- **Data Structures**
-- **Sorting**
-- **Searching**
-- **Hashing**
-- **Graphs**
-- **Trees**
-- **Dynamic Programming**
-- **Greedy Algorithms**
-<br />
+<p align="center">
+  <ul>
+    <li>Data Structures</li>
+    <li>Sorting</li>
+    <li>Searching</li>
+    <li>Hashing</li>
+    <li>Graphs</li>
+    <li>Trees</li>
+    <li>Dynamic Programming</li>
+    <li>Greedy Algorithms</li>
+  </ul>
+</p>
 LaTeX Writeups and Some Code Adjustments May be Required For Class Completion
 #### Class Materials Found Here: https://www.labouseur.com/courses/compilers/
