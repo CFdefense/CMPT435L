@@ -2,7 +2,6 @@
 <h2 align="center">Self-Taught and Completed - Summer '24</h2>
 
 <h3 align ="center">Topics Covered</h3>
-<p align="center">
 - **Data Structures**
 - **Sorting**
 - **Searching**
@@ -13,5 +12,4 @@
 - **Greedy Algorithms**
 <br />
 LaTeX Writeups and Some Code Adjustments May be Required For Class Completion
-</p>
 #### Class Materials Found Here: https://www.labouseur.com/courses/compilers/
