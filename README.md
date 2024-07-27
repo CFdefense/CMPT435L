@@ -4,7 +4,7 @@
 <h3 align ="center">Topics Covered</h3>
 <p align="center">
   <div align="center">
-  <ul>
+  <ul style="list-style-position: inside; text-align: left; display: inline-block;">
     <li>Data Structures</li>
     <li>Sorting</li>
     <li>Searching</li>
