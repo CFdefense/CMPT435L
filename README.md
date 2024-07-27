@@ -19,6 +19,6 @@
     <br />
     Greedy Algorithms
     <br />
-</p>
 LaTeX Writeups and Some Code Adjustments May be Required For Class Completion
-#### Class Materials Found Here: https://www.labouseur.com/courses/compilers/
+Class Materials Found Here: https://www.labouseur.com/courses/compilers/
+</p>
