@@ -47,18 +47,19 @@ void Sorts::insertionSort(std::string arr[], int arrSize) {
 void Sorts::mergeSort(std::string arr[], int start, int end, int &numComparisons) {
     //instance variable
     int middle = start + (end-start) / 2;
+    
     //base case
     if(start >= end) {
         return;
     }
+    
+    //recursive case
     //left split
     mergeSort(arr, start, middle, numComparisons);
     //right split
     mergeSort(arr, middle+1, end, numComparisons);
     //merge splitted in sorted fashion
     merge(arr, start, middle, end, numComparisons);
-
-    //recursive case
 };
 
 void Sorts::merge(std::string arr[], int start, int middle, int end, int &numComparisons) {
