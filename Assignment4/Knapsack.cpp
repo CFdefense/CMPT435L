@@ -17,7 +17,7 @@ void Knapsack::setTotPrice(float newTotalPrice) {
 
 void Knapsack::greedy(std::vector<Spices*> spiceList, float* totalPrice) {
     // find total spice count to avoid segfaults of big bags
-    int totSpice;
+    int totSpice = 0;
     for(Spices* spice : spiceList) {
         totSpice += spice->getQuant();
     }
@@ -59,8 +59,8 @@ void Knapsack::greedy(std::vector<Spices*> spiceList, float* totalPrice) {
 
 void Knapsack::printResult() {
     int comCount = mySpices.size();
-    std::cout << "Knapsack of capacity " << mySize << " is worth " << myTotPrice << " quatloos and contains ";
-    for(Spices* spice : mySpices) {
+    std::cout << "Knapsack of capacity " << this->mySize << " is worth " << this->myTotPrice << " quatloos and contains ";
+    for(Spices* spice : this->mySpices) {
         if(spice->getQuant() == 1) {
             std::cout << spice->getQuant() << " scoop of " << spice->getName();
         } else {
